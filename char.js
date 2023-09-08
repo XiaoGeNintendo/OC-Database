@@ -1,56 +1,17 @@
 
 var chars = [
-    { //no groups or nested attributes are supported right now
-        id: "hikari", //can be omitted to be name
-        name: "Hikari", //required
-        image: "test.jpg", //required
-        avatar: "testsmall.jpg", //required
-        otherNames: ["Dragon Princess","HKL"], //required
-        age: "&-1.1",
-        species: "#dragon",
-        ability: ["1", "2", "3"],
+    {
+        name: "Aguta", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        species: "#human",
+        ability: ["在箭矢上附着灵魂的能力", "百步穿杨的能力"],
         relationship:[
-            ["Ninetail","Servant"],
-            ["D.Lord","Servant"]
+            ["Ninetail","厌恶"],
         ],
-        gallery:[
-            {
-                image:"testbg.png",
-                title:"Entry",
-                desc:"This is a test gallery entry"
-            },
-            {
-                image:"testbg.png",
-                title:"Entry",
-                desc:"This is a test gallery entry"
-            },
-            {
-                image:"testbg.png",
-                title:"Entry",
-                desc:"This is a test gallery entry"
-            },
-            {
-                image:"testbg.png",
-                title:"Entry",
-                desc:"This is a test gallery entry"
-            },
-            {
-                image:"testbg.png",
-                title:"Entry",
-                desc:"This is a test gallery entry"
-            },
-            {
-                image:"test.jpg",
-                title:"Entry",
-                desc:"This is a test gallery entry"
-            },
-            {
-                image:"testsmall.jpg",
-                title:"Entry2",
-                desc:"This is a test gallery entry"
-            },
-        ],
-        desc:"$Hikari is a cute dragon with cute tails. Since the beginning of the time, she was a servant for Ninetail.", //required usually put at last
+        gallery:[],
+        desc:"游牧民族的首领，擅长诗赋，爱读历史。认为Ninetail执政是妖狐惑君，为此希望匡正皇宫，让龙王的恩惠普及更多的人。然而在夺权的过程中失败，但是未死回乡独善其身。", //required usually put at last
     }
 ]
 

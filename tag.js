@@ -1,14 +1,20 @@
 var tags={
     "dragon":{
-        parent:"creature",
-        name:"Dragon",
-        desc:"I am dragon!!",
+        parent:null,
+        name:"龙族",
+        desc:"三大种族之一，又龙王掌管。大多寿命较长、有一定智力、巨大的力量和魔法使用能力。",
         icon:"dragon"
     },
-    "creature":{
+    "human":{
         parent:null,
-        name:"Creature",
-        desc:"BaseClass for all creatures!!",
-        icon:"paw"
-    }
+        name:"人类",
+        desc:"三大种族之一，地球本真的智慧物种。大多有一定的社会性和智力。",
+        icon:"blind"
+    },
+    "beast":{
+        parent:null,
+        name:"兽族",
+        desc:"三大种族之一。在魔力诱导下产生的高级兽类，与平常的兽类不同，能理解龙人语并使用魔法。有的以人类形态与其他种族混居，也有的保持着兽形态。只有少数有较高的智力，但相比人类而言力量更大。",
+        icon:"blind"
+    },
 }

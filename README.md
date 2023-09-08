@@ -3,7 +3,7 @@ A local template site for managing OC for programmers
 
 # How do I use this?
 ## Hard way
-First, view the demo [here]()
+First, view the demo [here](https://xiaogenintendo.github.io/OC-Database/)
 
 Secondly, try to comprehend the data format listed in `char.js` `tag.js` `event.js` `iconset.js`
 

@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <title>OC Database - Template Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.staticfile.org/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/fomantic-ui/2.9.2/semantic.min.css">
+    <script src="https://cdn.staticfile.org/fomantic-ui/2.9.2/semantic.min.js"></script>
+    <script src="tag.js"></script>
+    <script src="char.js"></script>
+    <script src="event.js"></script>
+    <script src="util.js"></script>
+    
+</head>
+
+<body>
+    <div class="ui container" id="main" style="margin-top: 20px; margin-bottom: 20px;">
+
+        <div class="ui menu sticky" style="margin-bottom: 20px; margin-top: 20px;">
+            <a class="item" href="index.html">
+                <img class="ui image" height="30" src="https://xiaogenintendo.github.io/OfflineDict/logo.png"
+                    alt="Website Logo" />
+            </a>
+            <a class="item" href="chars.html">
+                <i class="user tie icon"></i>
+                Characters
+            </a>
+            <a class="item" href="timeline.html">
+                <i class="calendar icon"></i>
+                Timeline
+            </a>
+            <a class="item" href="tags.html">
+                <i class="tags icon"></i>
+                Tags
+            </a>
+        </div>
+
+        <div id="content" style="margin-bottom: 20px; margin-top: 20px;">
+
+            <div class="ui fluid search">
+                <div class="ui fluid icon input">
+                    <input class="prompt" type="text" placeholder="Search characters...">
+                    <i class="search icon"></i>
+                </div>
+                <div class="results"></div>
+            </div>
+
+            <hr />
+            Character Count: <i id="cc"></i>
+
+            <!-- Content here-->
+            <div class="ui feed" id="feeds">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('.ui.sticky').sticky({ context: '#content' });
+
+        //display character information
+        chars.sort((a, b) => a.name > b.name ? 1 : a.name == b.name ? 0 : -1);
+
+        var html = "";
+        for (let index in chars) {
+            var i = chars[index];
+            html += generateCharacterThumbnail(i.id);
+        }
+
+        $('#feeds').html(html);
+        $('#cc').html(chars.length);
+        $('.ui.search').search({
+            ignoreDiacritics: true,
+            searchFields: ["keyword"],
+            source: chars,
+            fields: {
+                title: 'keyword',
+                image: 'avatar',
+                description: 'desc',
+            },
+        });
+
+    </script>
+</body>
+
+</html>

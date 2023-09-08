@@ -1,0 +1,142 @@
+<html>
+
+<head>
+    <title>OC Database - Template Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.staticfile.org/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/fomantic-ui/2.9.2/semantic.min.css">
+    <script src="https://cdn.staticfile.org/fomantic-ui/2.9.2/semantic.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/timeline.js"></script>
+    <script src="iconset.js"></script>
+    <script src="tag.js"></script>
+    <script src="char.js"></script>
+    <script src="event.js"></script>
+    <script src="util.js"></script>
+</head>
+
+<body>
+    <div class="ui container" id="main" style="margin-top: 20px; margin-bottom: 20px;">
+
+        <div class="ui menu sticky" style="margin-bottom: 20px; margin-top: 20px;">
+            <a class="item" href="index.html">
+                <img class="ui image" height="30" src="https://xiaogenintendo.github.io/OfflineDict/logo.png"
+                    alt="Website Logo" />
+            </a>
+            <a class="item" href="chars.html">
+                <i class="user tie icon"></i>
+                Characters
+            </a>
+            <a class="item" href="timeline.html">
+                <i class="calendar icon"></i>
+                Timeline
+            </a>
+            <a class="item" href="tags.html">
+                <i class="tags icon"></i>
+                Tags
+            </a>
+        </div>
+
+        <div id="content" style="margin-bottom: 20px; margin-top: 20px;">
+            <h1 class="ui header">World Timeline</h1>
+            <div id="timelineGraph"></div>
+
+            <div id="modals"></div>
+        </div>
+    </div>
+
+    <script>
+        $('.ui.sticky').sticky({ context: '#content' });
+
+        //parse url
+        var param = new URLSearchParams(window.location.search);
+        var preloadEv = parseInt(param.get("ev"));
+
+        //prepare graph data
+        var graphData = [];
+        for (let i in events) {
+            var ev = events[i];
+            graphData.push({
+                x: ev.start,
+                description: ev.desc,
+                name: ev.name + (ev.start == ev.end ? "" : "(Start)"),
+                ev: i
+            });
+
+            if (ev.end != ev.start) {
+                graphData.push({
+                    x: ev.end,
+                    description: ev.desc,
+                    name: ev.name + "(End)",
+                    ev: i
+                });
+            }
+        }
+
+        //drawing graphs
+        Highcharts.Templating.helpers.dt = value => displayTime(value);
+
+        Highcharts.chart('timelineGraph', {
+            chart: {
+                zoomType: "x",
+                type: 'timeline'
+            },
+
+            xAxis: {
+                type: 'datetime',
+                visible: false
+            },
+            yAxis: {
+                gridLineWidth: 1,
+                title: null,
+                labels: {
+                    enabled: false
+                }
+            },
+
+            plotOptions: {
+                series: {
+                    allowPointSelect: true,
+                    point: {
+                        events: {
+                            select: function (e) {
+                                console.log(e);
+                                console.log("Show" + e.target.ev);
+                                $('#modal' + e.target.ev).modal('show');
+                            }
+                        }
+                    }
+                }
+            },
+
+            title: {
+                text: 'World Timeline Graph'
+            },
+            series: [{
+                dataLabels: {
+                    allowOverlap: false,
+                    format: '<span style="color:{point.color}">● </span><span style="font-weight: bold;" > ' +
+                        '{dt point.x}</span><br/>{point.name}'
+                },
+                marker: {
+                    symbol: 'circle',
+                },
+                data: graphData
+            }]
+        });
+
+        //adding modals
+        $('#modals').html(generateEventModals());
+
+        //showing default modal
+        function __() {
+            console.log(preloadEv);
+            if (!isNaN(preloadEv)) {
+                $('#modal' + preloadEv).modal('show');
+            }
+        }
+        setTimeout("__()", 1000);
+    </script>
+</body>
+
+</html>

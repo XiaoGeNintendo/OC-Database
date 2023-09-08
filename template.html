@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>OC Database - Template Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.staticfile.org/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/fomantic-ui/2.9.2/semantic.min.css">
+    <script src="https://cdn.staticfile.org/fomantic-ui/2.9.2/semantic.min.js"></script>
+    <script src="iconset.js"></script>
+    <script src="tag.js"></script>
+    <script src="char.js"></script>
+    <script src="event.js"></script>
+    <script src="util.js"></script>
+</head>
+
+<body>
+    <div class="ui container" id="main" style="margin-top: 20px; margin-bottom: 20px;">
+
+        <div class="ui menu sticky" style="margin-bottom: 20px; margin-top: 20px;">
+            <a class="item" href="index.html">
+                <img class="ui image" height="30" src="https://xiaogenintendo.github.io/OfflineDict/logo.png"
+                    alt="Website Logo" />
+            </a>
+            <a class="item" href="chars.html">
+                <i class="user tie icon"></i>
+                Characters
+            </a>
+            <a class="item" href="timeline.html">
+                <i class="calendar icon"></i>
+                Timeline
+            </a>
+            <a class="item" href="tags.html">
+                <i class="tags icon"></i>
+                Tags
+            </a>
+        </div>
+
+        <div id="content" style="margin-bottom: 20px; margin-top: 20px;">
+                <!-- Content here-->
+        </div>
+    </div>
+
+    <script>
+        $('.ui.sticky').sticky({ context: '#content' });
+    </script>
+</body>
+
+</html>

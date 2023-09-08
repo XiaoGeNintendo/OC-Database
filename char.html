@@ -1,0 +1,318 @@
+<html>
+
+<head>
+    <title>OC Database - Template Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.staticfile.org/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/fomantic-ui/2.9.2/semantic.min.css">
+    <script src="https://cdn.staticfile.org/fomantic-ui/2.9.2/semantic.min.js"></script>
+    <script src="https://unpkg.com/layout-base/layout-base.js"></script>
+    <script src="https://unpkg.com/cose-base/cose-base.js"></script>
+    <script src="https://unpkg.com/cytoscape-fcose/cytoscape-fcose.js"></script>
+    <script src="https://cdn.staticfile.org/cytoscape/3.26.0/cytoscape.min.js"></script>
+    <script src="iconset.js"></script>
+    <script src="tag.js"></script>
+    <script src="char.js"></script>
+    <script src="event.js"></script>
+    <script src="util.js"></script>
+</head>
+
+<body>
+    <div class="ui container" id="main" style="margin-top: 20px; margin-bottom: 20px;">
+
+        <div class="ui menu sticky" style="margin-bottom: 20px; margin-top: 20px;">
+            <a class="item" href="index.html">
+                <img class="ui image" height="30" src="https://xiaogenintendo.github.io/OfflineDict/logo.png"
+                    alt="Website Logo" />
+            </a>
+            <a class="item" href="chars.html">
+                <i class="user tie icon"></i>
+                Characters
+            </a>
+            <a class="item" href="timeline.html">
+                <i class="calendar icon"></i>
+                Timeline
+            </a>
+            <a class="item" href="tags.html">
+                <i class="tags icon"></i>
+                Tags
+            </a>
+        </div>
+
+        <div id="content" style="margin-bottom: 20px; margin-top: 20px;">
+            <div class="ui clearing segment">
+                <h2 class="ui left floated header">
+                    <img src="image/nodata.jpg" class="ui circular image" id="avatar" alt="Character Avatar">
+                    <b id="header">Character Name</b>
+                </h2>
+
+                <h3 class="ui right floated tiny header">
+                    <div class="ui input">
+                        <div class="ui labeled input">
+                            <div class="ui label" id="timeInfo">
+                                Year Information
+                            </div>
+                            <input type="text" placeholder="Time Travel" id="time"
+                                data-content="Enter year number(eg: 1, 2.345) to view this character's state at a designated time">
+                        </div>
+
+                    </div>
+                </h3>
+            </div>
+
+            <div class="ui divider"></div>
+
+
+            <div class="ui segment">
+                <table class="ui very basic fluid celled table">
+                    <tr>
+                        <td class="ui collapsing"><img src="image/nodata.jpg" id="image" alt="Character Image" /></td>
+                        <td>
+                            <div class="ui animated list" id="propertyHolder">
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="ui segment">
+                <h3>Related Characters</h3>
+                <div class="ui feed" id="rc">
+
+                </div>
+            </div>
+
+            <div class="ui segment">
+                <h3>Related Events</h3>
+                <div id="re"></div>
+            </div>
+            <div class="ui segment">
+                <h3>Relationship Graph</h3>
+                <div id="relationGraph" style="height: 400px; margin-bottom: 20px; margin-top: 20px;"></div>
+            </div>
+
+            <div class="ui segment">
+                <h3>Gallery</h3>
+                <i>Note: In case of multiple pictures, the gallery may be large in size, which may result in extra cost when
+                    using a traffic-based network connection. Please click the button below to show:</i> <br/>
+                    
+                <i>Note: You can show the full-sized picture by right-clicking the picture and selecting 'Opening In New Tab'.</i> <br/>
+                <button class="ui button" onclick="showGallery()" id="gbtn">Show Gallery</button> <br/>
+                <div class="ui cards" id="gallery">
+
+                </div>
+            </div>
+            <div id="modals">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('.ui.sticky').sticky({ context: '#content' });
+        $('#time').popup({ on: 'focus' });
+
+
+        //parse url
+        var param = new URLSearchParams(window.location.search);
+        var id = param.get("id");
+        var timeLimit = parseFloat(param.get("time"));
+        if (isNaN(timeLimit)) {
+            timeLimit = Infinity;
+        }
+
+        //find character object
+        var obj = findCharWithID(id);
+
+        //fill up basic information
+        console.log("Found object:" + obj.name);
+        $('#header').text(obj.name);
+        $('#avatar').attr('src', obj.avatar);
+        $('#image').attr('src', obj.image);
+        $('#time').val(timeLimit);
+
+        //generate attributes
+        var html = "";
+        for (let i in obj) {
+            if (["name", "image", "avatar", "id", "url", "keyword", "relationship", "gallery"].includes(i)) {
+                continue;
+            }
+            html += `
+            <div class="item">
+                <i class="${getIcon(i)} icon"></i>
+                <div class="content">
+                    <div class="header">${capitalize(i)}</div>
+                    <div class="description">
+                        ${renderProperty(obj[i], obj.id + "." + i, timeLimit)}
+                    </div>
+                </div>
+            </div>
+            `
+        }
+
+        $('#propertyHolder').html(html);
+
+        //generate modals
+        $('#modals').html(generateModals());
+
+        //parse input text
+        $('#time').keydown(event => {
+            if (event.keyCode == 13) {
+                window.location.href = "char.html?id=" + id + "&time=" + $('#time').val();
+            }
+        });
+        $('#time').keyup(event => {
+            $('#timeInfo').text(displayTime(parseFloat($('#time').val())));
+        });
+
+        //relationships display(RC)
+        var rhtml = "";
+        for (var i in obj.relationship) {
+            var rr = obj.relationship[i];
+            rhtml += generateCharacterThumbnail(rr[0]);
+        }
+        $('#rc').html(rhtml);
+
+        //related events (RE)
+        var reh = "";
+        for (var i in events) {
+            if (events[i].participant.includes(id)) {
+                reh += `<i class="exclamation circle icon"></i><a href="timeline.html?ev=${i}">${events[i].name} (${displayTime(events[i].start)} - ${displayTime(events[i].end)})</a><br/>`
+            }
+        }
+        $('#re').html(reh);
+
+        //generate a graph about relationships
+        var maxDepth = 3;
+        var visited = {};
+        var graphData = [];
+        function dfsRelationship(name, depth) {
+            if (visited[name]) {
+                return;
+            }
+
+            if (depth == maxDepth) {
+                return;
+            }
+
+
+            var obj = findCharWithID(name);
+
+            if (obj == null) {
+
+                graphData.push(
+                    {
+                        data: {
+                            id: name,
+                            label: name,
+                            color: "#123456"
+                        }
+                    }
+                );
+
+                visited[name] = true;
+                return;
+            } else {
+
+                graphData.push(
+                    {
+                        data: {
+                            id: name,
+                            label: obj.name
+                        }
+                    }
+                );
+
+                visited[name] = true;
+            }
+
+
+
+
+            for (let i in obj.relationship) {
+                var rel = obj.relationship[i]; //[to,label]
+                graphData.push(
+                    {
+                        data: {
+                            source: name,
+                            target: rel[0],
+                            label: rel[1],
+                            arrow: "triangle",
+
+                        }, classes: 'autorotate'
+                    }
+                );
+
+                dfsRelationship(rel[0], depth + 1);
+            }
+        }
+
+        dfsRelationship(id, 0);
+
+        console.log(graphData);
+
+        cytoscape.use(cytoscapeFcose);
+
+        var cy = cytoscape({
+
+            container: $('#relationGraph'), // container to render in
+
+            elements: graphData,
+
+            style: [ // the stylesheet for the graph{
+                {
+                    selector: 'node',
+                    style: {
+                        'background-color': '#666',
+                        "label": "data(label)"
+                    }
+                },
+
+                {
+                    selector: 'edge',
+                    style: {
+                        'width': 3,
+                        'line-color': '#ccc',
+                        'target-arrow-color': '#ccc',
+                        'target-arrow-shape': 'triangle',
+                        'curve-style': 'bezier',
+                        "label": "data(label)",
+                    }
+                }
+            ],
+
+            layout: {
+                name: 'fcose'
+            }
+
+        });
+
+        //gallery
+        function showGallery() {
+            var html = "";
+            for (let i in obj.gallery) {
+                var img = obj.gallery[i];
+                html += `<div class="card">
+                            <div class="image">
+                                <img src="${img.image}">
+                            </div>
+                            <div class="content">
+                                <div class="header">${img.title}</div>
+                                <div class="description">
+                                    ${img.desc}
+                                </div>
+                            </div>
+                        </div>`
+            }
+            
+            if(html==""){
+                html="<i>None</i>"
+            }
+            $('#gallery').html(html);
+            $('#gbtn').hide();
+        }
+    </script>
+</body>
+
+</html>

@@ -110,6 +110,12 @@ var tags={
         desc:"具有神性、魔力的种族。尾巴的数量决定了魔力的强度，大致分为1、2、3、6、9尾狐。从刻板影响来看，部分狐狸有着初级的控制能力，且常常作为神使。",
         icon:"firefox browser"
     },
+    "dualtail":{
+        parent:"fox",
+        name:"双尾狐",
+        desc:"较为强力的狐狸",
+        icon:"firefox browser"
+    },
     "ninetail":{
         parent:"fox",
         name:"九尾狐",
@@ -153,7 +159,66 @@ var tags={
         name:"Rinko的相机",
         desc:"普普通通的拍立得相机，但是一家人辛辛苦苦存钱所换来的，承载了Rinko的梦想。能够定格住拍照框内的物体。",
         icon:"camera"
+    }, 
+    "anecklace":{
+        parent:null,
+        name:"Amethcoy的项链",
+        desc:"Amethcoy祖传的项链，具有很强的灵性，能够贮存部分能力。有人说可以和灵魂交互。",
+        icon:"camera"
     },
+
+    "ryuto":{
+        parent:null,
+        name:"龙都",
+        desc:`位置大概在现在的南京，在Zogo国内独自为国，是皇宫的所在地，由龙王直接管辖。
+        根号江、大川两条河流穿过城市，将城市分为北、西和南区。
+        北区由原来的人类管理，南区由龙族管制，西区由兽族管理。
+        城内文化多元、三族和谐共存、对龙王的信仰极强。
+        由于龙铁公司的总部设立在此，城内铁路十分发达。`,
+        icon:"location arrow"
+    }, 
+    "sesehushi":{
+        parent:"ryuto",
+        name:"月户城",
+        desc:`读作E'se'hu'shi。大川中的江心洲，不位于任何区域（南北西），龙铁总部的所在地。龙族较多，多为上班族。城内高楼林立，十分繁华。`,
+        icon:"map marker"
+    }, 
+    "palace":{
+        parent:"ryuto",
+        name:"皇宫",
+        desc:`龙王和龙母居住地，成功之人的目的地（？）`,
+        icon:"map marker"
+    }, 
+    "mirai":{
+        parent:null,
+        name:"米莱",
+        desc:`Zogo国的地区，位置在现在的新疆东部，最大城市龙穴。还有神德、乌合、彩陵、地子等大城市`,
+        icon:"location arrow"
+    },
+    "dragocave":{
+        parent:"mirai",
+        name:"龙穴",
+        desc:`米莱的最大都市`,
+        icon:"location arrow"
+    },
+    "hell":{
+        parent:null,
+        name:"地狱",
+        desc:`兽族死后所去之处。`,
+        icon:"location arrow"
+    },
+    "unknown":{
+        parent:null,
+        name:"未知",
+        desc:`薛定谔的设定`,
+        icon:"question circle"
+    },
+    "tenkigo":{
+        parent:null,
+        name:"天气宫",
+        desc:`读作ten'ki'go。掌管魔法的运行、时间的流逝、魔法契约的执行、天气的运行`,
+        icon:"map marker"
+    }, 
 
     "male":{
         parent:null,
@@ -188,6 +253,12 @@ var tags={
         icon:"book"
     },
 
+    "alive":{
+        parent:null,
+        name:"存活",
+        desc:"该角色存活！但是马上就可能寄了？",
+        icon:"fire"
+    },
     "dead":{
         parent:null,
         name:"已故",

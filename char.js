@@ -7,6 +7,8 @@
         otherNames: [], //required
         sex: "#female",
         species: "#",
+        status: "#alive",
+        location: "#unknown",
         ability: [],
         relationship:[
         ],
@@ -22,6 +24,8 @@ var chars = [
         otherNames: [], //required
         sex:"#male",
         species: "#human",
+        status: "#alive",
+        location: "#unknown",
         ability: ["在箭矢上附着灵魂的能力", "百步穿杨的能力"],
         relationship:[
             ["Ninetail","厌恶"],
@@ -36,15 +40,17 @@ var chars = [
         otherNames: [], //required
         sex:"#female",
         species: "#fox",
-        status:"#dead",
-        ability: ["建立联系吸取能量的能力","在虐待中自我成长的能力","让对方失去斗志的能力","撤销位移的能力","在对方了解自己的位置、能力、名字、形态四个中两个或以上的情况下可以操纵对方的灵魂的能力。"],
+        status:"#alive",
+        location:"#dragocave",
+        equipment:"#anecklace",
+        ability: ["建立联系吸取能量的能力","在虐待中自我成长的能力","让对方失去斗志的能力","撤销位移的能力"],
         relationship:[
             ["Ninetail","厌恶"],
             ["DLord","厌恶"],
             ["Ookami","反感"],
             ["Doragon","反感"],
-            ["Anoko","谋杀未遂"],
-            ["Onkin","谋杀未遂"],
+            ["Anoko","厌恶"],
+            ["Onkin","厌恶"],
         ],
         height:1.1,
         gallery:[],
@@ -65,6 +71,8 @@ var chars = [
         otherNames: ["阿诺可"], //required
         sex: "#male",
         species: "#human",
+        status: "#alive",
+        location: "#dragocave",
         ability: ["与非生命体建立「连接」并施加力的能力"],
         relationship:[
             ["Onkin","朋友"]
@@ -92,7 +100,8 @@ var chars = [
         otherNames: [], //required
         sex: "#male",
         species: "#human",
-        status:"#dead",
+        status: "#alive",
+        location: "#ryuto",
         career:"皇宫新闻记者",
         ability: [],
         relationship:[
@@ -108,6 +117,8 @@ var chars = [
         otherNames: [], //required
         sex: "#male",
         species: "#firedragon",
+        status:"#alive",
+        location:"#palace",
         ability: ["掌握世界核心和龙族力量的能力"],
         relationship:[
             ["Ender Snake","旧友"],
@@ -128,7 +139,8 @@ var chars = [
         otherNames: ["朵拉"], //required
         sex: "#female",
         species: "#human",
-        status:"#dead",
+        status: "#dead",
+        location: "#unknown",
         ability: ["从生物记录魔法到魔导书上并随时调取的能力（调取时会出现原生物的一定特征）"],
         relationship:[
             ["Hue","朋友"]
@@ -142,6 +154,8 @@ var chars = [
         avatar: "", //required
         otherNames: [], //required
         sex: "#female",
+        status:"#alive",
+        location:"#unknown",
         species: ["#aquadragon","#scaledragon"],
         relationship:[
             ["DLord","仰慕"],
@@ -161,6 +175,7 @@ var chars = [
         otherNames: ["末蛇"], //required
         sex: "#male",
         species: "#snake",
+        location:"#hell",
         ability: ["控制他人精神的能力","产生不存在物质的能力","复制他人形态的能力","寄生并操纵他人的能力","克隆对象的能力"],
         relationship:[
             ["DLord","旧友"]
@@ -175,6 +190,8 @@ var chars = [
         otherNames: [], //required
         sex: "#female",
         species: "#cat",
+        status: "#alive",
+        location: "#unknown",
         ability: ["调换物品位置的能力"],
         relationship:[
             ["Wulpit","朋友"],
@@ -189,6 +206,8 @@ var chars = [
         avatar: "", //required
         otherNames: [], //required
         sex: "#female",
+        status: "#dead",
+        location: "#unknown",
         relationship:[
         ],
         gallery:[],
@@ -201,6 +220,8 @@ var chars = [
         otherNames: [], //required
         sex: "#female",
         species: "#fox",
+        status: "#alive",
+        location: "#unknown",
         ability: [],
         relationship:[
             ["Naza","妹妹"],
@@ -231,7 +252,8 @@ var chars = [
         otherNames: ["休"], //required
         sex: "#male",
         species: "#human",
-        status:"#dead",
+        status: "#dead",
+        location: "#unknown",
         ability: ["吸取物体和生物时间的能力"],
         relationship:[
             ["Dola","朋友"]
@@ -240,11 +262,13 @@ var chars = [
         desc:`$家庭条件不好但是很有志向，通过“Friend”海选所选入皇宫的凶兽。身高不到1m3的小正太（？）和后来以同样途径选中的Dola成了青梅竹马。在凶兽事件中死亡。`, //required usually put at last
     },
     {
-        name: "Hikari White", //required
+        name: "Hikari", //required
         image: "", //required
         avatar: "", //required
-        otherNames: [], //required
+        otherNames: ["Hikari White"], //required
         sex: "#female",
+        status: "#alive",
+        location: "#palace",
         species: ["#lightdragon","#scaledragon"],
         ability: ["变成任意物体程度的能力","产生不可治愈伤口程度的能力","治愈&复活程度的能力","控制自己存在与否的能力"],
         relationship:[
@@ -278,6 +302,8 @@ var chars = [
         otherNames: ["池田 猎狼","池田猎狼"], //required
         sex: "#male",
         species: ["#human","#wolf"],
+        status: "#alive",
+        location: "#unknown",
         ability: ["强制生物融合的能力"],
         relationship:[
         ],
@@ -306,7 +332,8 @@ var chars = [
         otherNames: [], //required
         sex: "#female",
         species: "#human",
-        status:"#dead",
+        status: "#dead",
+        location: "#unknown",
         ability: [],
         relationship:[
         ],
@@ -321,6 +348,8 @@ var chars = [
         sex: "#male",
         species: "#loong",
         from:"#cakeslice",
+        status: "#alive",
+        location: "#unknown",
         ability: [],
         relationship:[
             ["Midori","哥哥"]
@@ -338,6 +367,8 @@ var chars = [
         sex: "#female",
         species: "#loong",
         from:"#cakeslice",
+        status: "#alive",
+        location: "#unknown",
         ability: [],
         relationship:[
             ["Massao","妹妹"]
@@ -354,7 +385,8 @@ var chars = [
         otherNames: [], //required
         sex: "#male",
         species: "#mouse",
-        status:"#dead",
+        status: "#dead",
+        location: "#unknown",
         ability: ["传送到老鼠的能力","隐蔽不被发现的能力"],
         relationship:[
         ],
@@ -368,6 +400,8 @@ var chars = [
         otherNames: [], //required
         sex: "#female",
         species: "#butterfly",
+        status: "#dead",
+        location: "#unknown",
         ability: [],
         relationship:[
         ],
@@ -381,6 +415,8 @@ var chars = [
         otherNames: [], //required
         sex: "#female",
         species: "#fox",
+        status: "#alive",
+        location: "#unknown",
         ability: [],
         relationship:[
             ["Haobo","姐姐"],
@@ -396,6 +432,8 @@ var chars = [
         otherNames: [], //required
         sex: "#female",
         species: "#ninetail",
+        status: "#alive",
+        location: "#unknown",
         ability: ["复制形态程度的能力","吞噬心脏来增强自身实力程度的能力","死后以小狐狸形态续命程度的能力","在九尾上附着最多九种凶兽能力程度的能力","当受到控制时控制控制者程度的能力","看清对方凶兽能力程度的能力"],
         relationship:[
             ["Ookami","朋友"],
@@ -416,6 +454,8 @@ var chars = [
         avatar: "", //required
         otherNames: ["之霁 二世","之霁二世"], //required
         sex: "#female",
+        status: "#alive",
+        location: "#mirai",
         career:"龙语和龙人语文化研究博士",
         species: ["#tsdragon","#scaledragon"],
         ability: [],
@@ -433,6 +473,8 @@ var chars = [
         otherNames: ["虹晴"], //required
         sex: "#male",
         species: "#human",
+        status: "#alive",
+        location: "#dragocave",
         ability: ["改变连接和信息的能力","改变结界信息的能力","通过肢体接触迅速提升和对方好感度的能力"],
         relationship:[
             ["Anoko","朋友"],
@@ -452,6 +494,8 @@ var chars = [
         otherNames: [], //required
         sex: "#female",
         species: "#whitewolf",
+        status: "#alive",
+        location: "#unknown",
         ability: [],
         relationship:[
             ["Doragon","朋友"],
@@ -485,6 +529,8 @@ var chars = [
         otherNames: [], //required
         sex: "#female",
         species: "#tanuki",
+        status: "#alive",
+        location: "#unknown",
         ability: ["变成他人形态（不复制能力）的能力"],
         relationship:[
             ["Wulpit","朋友"],
@@ -500,6 +546,8 @@ var chars = [
         otherNames: ["Touhou Rinko","东方 麟空","东方麟空"], //required
         sex: "#female",
         species: ["#fox","#dragon"],
+        status: "#alive",
+        location: "#unknown",
         ability: ["附身龙和鸟的能力","定格相机所拍下一切的能力"],
         equipment:"#rkcamera",
         relationship:[
@@ -515,6 +563,8 @@ var chars = [
         otherNames: ["Touhou Rinri","东方 麟日","东方麟日"], //required
         sex: "#male",
         species: ["#fox","#dragon"],
+        status: "#alive",
+        location: "#unknown",
         ability: ["有志者事竟成的能力"],
         relationship:[
             ["Rinko","哥哥"]
@@ -528,6 +578,8 @@ var chars = [
         avatar: "", //required
         otherNames: ["龙母"], //required
         sex: "#female",
+        status: "#alive",
+        location: "#palace",
         species: ["#sldragon"],
         ability: ["管辖生殖与遗传的能力"],
         relationship:[
@@ -570,6 +622,8 @@ var chars = [
         sex: "#female",
         species: ["#lightdragon","#scaledragon"],
         career:"龙族铁路公司「龙铁」的总裁",
+        status: "#alive",
+        location: "#esehushi",
         ability: [],
         relationship:[
         ],
@@ -604,6 +658,8 @@ var chars = [
         sex: "#male",
         species: ["#firedragon","#scaledragon"],
         ability: [],
+        status: "#alive",
+        location: "#tenkigo",
         relationship:[
         ],
         gallery:[],
@@ -648,6 +704,8 @@ var chars = [
         otherNames: [], //required
         sex: ["#male","#female"],
         species: ["#wolf","#fox","#rabbit"],
+        status: "#alive",
+        location: "#unknown",
         ability: ["在三种形态和种族中转化的能力"],
         relationship:[
             ["Racon","朋友"],
@@ -712,6 +770,25 @@ var chars = [
         ],
         gallery:[],
         desc:`$无`, //required usually put at last
+    },
+    {
+        name: "Saluvy", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#male",
+        species: ["#dragon","#scaledragon"],
+        status:"#alive",
+        location: "#unknown",
+        ability: [],
+        relationship:[
+            ["Amethcoy","神秘关系"]
+        ],
+        gallery:[],
+        desc:`$能力不详。是救助Amethcoy的中学生的父亲的同事。在某生物研究所工作。
+        由于一个特殊的契机，他所在的研究所发明了聚焦黑暗粒子的机器，允许一个生物拥有更多的点数和更大的能力。
+        使用这个机器的第一个人，也就是救助Amethcoy的中学生的父亲有着十分自由的思想，认为龙族不应受到龙王中央的管制，因此凶兽化发动革命，但是失败。
+        而他则继承了同事的意志，成功夺权。但是凶兽的能力会改变一个人的意志，使其堕落。因此，在执政后，他忘记了自己的初心，成立了等级制。`, //required usually put at last
     },
 ]
 

@@ -76,7 +76,7 @@ function getNextColor() {
 
 function renderSingleProperty(property, timeLimit = Infinity) {
     if (Array.isArray(property)) {
-        if(property.length==0){
+        if (property.length == 0) {
             return "<i>Empty</i>";
         }
 
@@ -96,7 +96,7 @@ function renderSingleProperty(property, timeLimit = Infinity) {
 
             var tag = tags[property.substring(1)];
             //render as tag
-            return `<a class="ui ${getNextColor()} label" href="javascript:$('#modal${property.substring(1)}').modal('show')">
+            return `<a class="ui ${getNextColor()} label" style="margin-top: 5px; margin-bottom: 5px;" href="javascript:$('#modal${property.substring(1)}').modal('show')">
                         <i class="${tag.icon} icon"></i>
                         ${tag.name}
                     </a>
@@ -106,7 +106,7 @@ function renderSingleProperty(property, timeLimit = Infinity) {
             console.log(property.substring(1));
             //render as long text
             return `<div class="ui segment">
-                        ${property.substring(1).replaceAll("\n","<br/>")}
+                        ${property.substring(1).replaceAll("\n", "<br/>")}
                     </div>
           `
         } else if (property[0] == '&') {
@@ -121,7 +121,7 @@ function renderSingleProperty(property, timeLimit = Infinity) {
 
             return `<div class="ui ${getNextColor()} circular label" data-tooltip="Auto-calculated from: ${displayTime(birthday)}">${age}</div>`;
         } else {
-            return `<div class="ui ${getNextColor()} label">${property}</div>`;
+            return `<div class="ui ${getNextColor()} label" style="margin-top: 5px; margin-bottom: 5px;">${property}</div>`;
         }
     }
 }
@@ -267,23 +267,26 @@ function generateEventModals() {
             var p = ev.participant[j];
             pp += generateCharacterThumbnail(p) + "<br/>";
         }
+        if (pp == "") {
+            pp = "<i>None</i>";
+        }
 
         //generate influence
-        var pe="";
-        for(let j in ev.effect){
-            var f=parseEffect(ev.effect[j]);
-            f[0]=f[0].replace(".","'s ");
-            if(f[1]=="+="){
-                pe+=`<i class="plus icon"></i>'${f[2]}' was added to ${f[0]}`
-            }else if(f[1]=="-="){
-                pe+=`<i class="minus icon"></i>'${f[2]}' was minused/removed from ${f[0]}`
-            }else if(f[1]=="="){
-                pe+=`<i class="equals icon"></i>${f[0]} was changed to '${f[2]}'`
+        var pe = "";
+        for (let j in ev.effect) {
+            var f = parseEffect(ev.effect[j]);
+            f[0] = f[0].replace(".", "'s ");
+            if (f[1] == "+=") {
+                pe += `<i class="plus icon"></i>'${f[2]}' was added to ${f[0]}`
+            } else if (f[1] == "-=") {
+                pe += `<i class="minus icon"></i>'${f[2]}' was minused/removed from ${f[0]}`
+            } else if (f[1] == "=") {
+                pe += `<i class="equals icon"></i>${f[0]} was changed to '${f[2]}'`
             }
-            pe+="<br/>"
+            pe += "<br/>"
         }
-        if(pe==""){
-            pe="<i>None</i>"
+        if (pe == "") {
+            pe = "<i>None</i>"
         }
 
         html += `

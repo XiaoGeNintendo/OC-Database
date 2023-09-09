@@ -5,7 +5,11 @@ var iconset={
     "age":"music",
     "species":"scroll",
     "height":"text height",
-    "sex":"venus mars"
+    "sex":"venus mars",
+    "location":"search location",
+    "equipment":"bullseye",
+    "status":"fire",
+    "ability":"rainbow"
 }
 
 function getIcon(s){

@@ -3,7 +3,9 @@ var iconset={
     "otherNames":"font",
     "desc":"paperclip",
     "age":"music",
-    "species":"scroll"
+    "species":"scroll",
+    "height":"text height",
+    "sex":"venus mars"
 }
 
 function getIcon(s){

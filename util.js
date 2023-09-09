@@ -76,6 +76,10 @@ function getNextColor() {
 
 function renderSingleProperty(property, timeLimit = Infinity) {
     if (Array.isArray(property)) {
+        if(property.length==0){
+            return "<i>Empty</i>";
+        }
+
         var ans = "";
         for (let i in property) {
             var obj = property[i];
@@ -99,9 +103,10 @@ function renderSingleProperty(property, timeLimit = Infinity) {
           `
         } else if (property[0] == '$') {
             var tag = tags[property.substring(1)];
+            console.log(property.substring(1));
             //render as long text
             return `<div class="ui segment">
-                        ${property.substring(1)}
+                        ${property.substring(1).replaceAll("\n","<br/>")}
                     </div>
           `
         } else if (property[0] == '&') {
@@ -280,7 +285,7 @@ function generateEventModals() {
         if(pe==""){
             pe="<i>None</i>"
         }
-        
+
         html += `
         <div class="ui modal" id="modal${i}">
             <div class="header">

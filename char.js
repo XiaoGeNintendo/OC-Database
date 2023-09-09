@@ -1,18 +1,718 @@
 
+/*
+    {
+        name: "", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#female",
+        species: "#",
+        ability: [],
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$`, //required usually put at last
+    },
+*/
 var chars = [
     {
         name: "Aguta", //required
         image: "", //required
         avatar: "", //required
         otherNames: [], //required
+        sex:"#male",
         species: "#human",
         ability: ["在箭矢上附着灵魂的能力", "百步穿杨的能力"],
         relationship:[
             ["Ninetail","厌恶"],
+            ["DLord","认可"]
         ],
         gallery:[],
-        desc:"游牧民族的首领，擅长诗赋，爱读历史。认为Ninetail执政是妖狐惑君，为此希望匡正皇宫，让龙王的恩惠普及更多的人。然而在夺权的过程中失败，但是未死回乡独善其身。", //required usually put at last
-    }
+        desc:"$游牧民族的首领，擅长诗赋，爱读历史。认为Ninetail执政是妖狐惑君，为此希望匡正皇宫，让龙王的恩惠普及更多的人。然而在夺权的过程中失败，但是未死回乡独善其身。", //required usually put at last
+    },{
+        name: "Amethcoy", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex:"#female",
+        species: "#fox",
+        status:"#dead",
+        ability: ["建立联系吸取能量的能力","在虐待中自我成长的能力","让对方失去斗志的能力","撤销位移的能力","在对方了解自己的位置、能力、名字、形态四个中两个或以上的情况下可以操纵对方的灵魂的能力。"],
+        relationship:[
+            ["Ninetail","厌恶"],
+            ["DLord","厌恶"],
+            ["Ookami","反感"],
+            ["Doragon","反感"],
+            ["Anoko","谋杀未遂"],
+            ["Onkin","谋杀未遂"],
+        ],
+        height:1.1,
+        gallery:[],
+        desc:`$家族代代是能乐的表演者，自小喜欢表演，然而村庄遭到奴隶贩子的洗劫，化作妓女。总是带着家族祖传的黑色八面体项链用于吸收能量，在其中也保留着自己的一部分灵魂。在长年累月的怨恨中成为了凶兽，对人类十分憎恨，希望报复社会。在夺权过程中失败被杀。
+        
+        她的项链不久之后被一位当地中学生拾起，在中学生的帮助下，她最后得以复活。她利用中学生提升自己的能力，夺取政权。对于她认为维持了人类虐待其他种族世道的Ninetail和DLord等人也十分憎恨不满，因而吞噬了他们获得了「至上的力量」。吞噬后，为了隔离开人类和其他种族，重塑了世界格局为“五岛式”，每个种族主要居住在一个岛上（一人、一龙、二兽、首都）。
+        
+        在「五岛式」变化后一段时间因为孤独复活了Ninetail、Ookami、Doragon等人，但是对于她们仍然保持负面的态度。Ninetail与Amethcoy常不合，对于自己被吞噬这一件事也总是不甘，被Amethcoy删去了和她有关的记忆。
+        
+        废止了「凶兽制」，恢复了「友达制」——选中之人（「Friend」）开局获得12点凶兽点数，但不会随着杀戮而增加，通过四岛和皇宫的「挑战」者可以入宫。
+        
+        仍然非常憎恨人类，试图杀死正当挑战的Onkin和Anoko但是失败。`, //required usually put at last
+    },
+    {
+        name: "Anoko", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["阿诺可"], //required
+        sex: "#male",
+        species: "#human",
+        ability: ["与非生命体建立「连接」并施加力的能力"],
+        relationship:[
+            ["Onkin","朋友"]
+        ],
+        gallery:[],
+        desc:`$Onkin的朋友，性格十分内向，喜好物理。详见Onkin。`, //required usually put at last
+    },
+    {
+        name: "Atoblade", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#male",
+        career:"军官",
+        from:"#hotv",
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$详见ZKY的HotV。`, //required usually put at last
+    },
+    {
+        name: "Diary", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#male",
+        species: "#human",
+        status:"#dead",
+        career:"皇宫新闻记者",
+        ability: [],
+        relationship:[
+            ["Hikari","元丈夫"]
+        ],
+        gallery:[],
+        desc:`$最早是旅游家，由于记录了首都每一家书店的信息而著名。有一次无意在某个不知名的书店碰见Hikari和她一见钟情，被带回皇宫做新闻记者。但是毕竟是人类，很短命，不久就在凶兽事件中去世了。`, //required usually put at last
+    },
+    {
+        name: "DLord", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#male",
+        species: "#firedragon",
+        ability: ["掌握世界核心和龙族力量的能力"],
+        relationship:[
+            ["Ender Snake","旧友"],
+            ["Hikari","主人"],
+            ["Ninetail","挚友"],
+            ["Doragon","挚友"],
+            ["Ookami","挚友"],
+            ["Reshi","同居"],
+            
+        ],
+        gallery:[],
+        desc:`$世界运转的核心。最早的时候和末蛇是第一批凶兽。如今随着世界的变迁成为了人上人。前一阵子还有着控制一切的能力，但是最近强调“控制权力”而被削弱了。本身没有什么特点，但是可以调用每条龙的能力，同时掌管着魔力的运行。平时喜欢呆在皇宫rua小动物，周日会担任「龙铁」公司的超特急列车「Royal Dragon」号的司机。`, //required usually put at last
+    },
+    {
+        name: "Dola", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["朵拉"], //required
+        sex: "#female",
+        species: "#human",
+        status:"#dead",
+        ability: ["从生物记录魔法到魔导书上并随时调取的能力（调取时会出现原生物的一定特征）"],
+        relationship:[
+            ["Hue","朋友"]
+        ],
+        gallery:[],
+        desc:`$某贵族的大小姐，喜欢魔法但身体脆弱（帕秋莉？）。通过“Friend”海选选入皇宫。她的（卑鄙龌龊的）家庭教师希望鸡犬升天，但是意图被看穿而没能得意。在凶手事件中丧命。`, //required usually put at last
+    },
+    {
+        name: "Doragon", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#female",
+        species: ["#aquadragon","#scaledragon"],
+        relationship:[
+            ["DLord","仰慕"],
+            ["Ookami","同学/挚友"],
+            ["Ninetail","同学/挚友"],
+            ["Hikari","挚友"],
+        ],
+        gallery:[],
+        desc:`$四大天王之二。从大山里来的水龙。非常关心自己的老家。有一把三叉戟，能够较为熟练的调用水魔法。和Ookami关系非常好。IQ很高。后因凶兽事件死亡。
+
+        在「五岛式」后被Amethcoy复活。`, //required usually put at last
+    },
+    {
+        name: "Ender Snake", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["末蛇"], //required
+        sex: "#male",
+        species: "#snake",
+        ability: ["控制他人精神的能力","产生不存在物质的能力","复制他人形态的能力","寄生并操纵他人的能力","克隆对象的能力"],
+        relationship:[
+            ["DLord","旧友"]
+        ],
+        gallery:[],
+        desc:`$最早的凶兽。把自己磨练的非常强大。`, //required usually put at last
+    },
+    {
+        name: "Fely", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#female",
+        species: "#cat",
+        ability: ["调换物品位置的能力"],
+        relationship:[
+            ["Wulpit","朋友"],
+            ["Racon","朋友"]
+        ],
+        gallery:[],
+        desc:`$详见Wulpit故事。`, //required usually put at last
+    },
+    {
+        name: "Ginrin", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#female",
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$设定遗忘`, //required usually put at last
+    },
+    {
+        name: "Haobo", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#female",
+        species: "#fox",
+        ability: [],
+        relationship:[
+            ["Naza","妹妹"],
+            ["Ninetail","学徒"]
+        ],
+        gallery:[],
+        desc:`$曾经在煤矿当工头，但是煤矿被其他地主强占了，她和妹妹也因此被杀害。之后在天堂与Ninetail相见三人成为好朋友。现在离开皇宫修炼中。`, //required usually put at last
+    },
+    {
+        name: "Herliant", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#female",
+        species: "#human",
+        career:"教师",
+        from:"#hotv",
+        ability: [],
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$详见HotV。`, //required usually put at last
+    },
+    {
+        name: "Hue", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["休"], //required
+        sex: "#male",
+        species: "#human",
+        status:"#dead",
+        ability: ["吸取物体和生物时间的能力"],
+        relationship:[
+            ["Dola","朋友"]
+        ],
+        gallery:[],
+        desc:`$家庭条件不好但是很有志向，通过“Friend”海选所选入皇宫的凶兽。身高不到1m3的小正太（？）和后来以同样途径选中的Dola成了青梅竹马。在凶兽事件中死亡。`, //required usually put at last
+    },
+    {
+        name: "Hikari White", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#female",
+        species: ["#lightdragon","#scaledragon"],
+        ability: ["变成任意物体程度的能力","产生不可治愈伤口程度的能力","治愈&复活程度的能力","控制自己存在与否的能力"],
+        relationship:[
+            ["Ninetail","女仆"],
+            ["DLord","女仆"],
+            ["Ookami","朋友"],
+            ["Doragon","朋友"]
+        ],
+        gallery:[],
+        desc:`$四大天王中第四。以“perfect maid”著称的有名皇室龙。尾巴末端有一颗光球，尾巴上的鳞片可以生产某种高级香精。小山羊角小翼。由于能力强大，脖子上有项圈和一把小锁来控制能量的输出。详见RTiFE。`, //required usually put at last
+    },
+    {
+        name: "Hypret", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#male",
+        species: "#human",
+        status:"#dead",
+        from:"#segicverse",
+        ability: [],
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$无`, //required usually put at last
+    },
+    {
+        name: "Ikeda Kesousero", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["池田 猎狼","池田猎狼"], //required
+        sex: "#male",
+        species: ["#human","#wolf"],
+        ability: ["强制生物融合的能力"],
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$90%是人类，10%是狼族。
+        父亲是猎人，和某次猎到的狼女结了婚。但是父亲夭折的早，母亲又寿命不长。双亲丧命后他便阴差阳错的认为是母亲给家庭带来了灾难，于是痛恨兽类。`, //required usually put at last
+    },
+    {
+        name: "Kero", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#male",
+        species: "#darkelf",
+        ability: ["归零，暗黑两个球（后来变成三个），会召唤暗黑精灵（属性越来越强）"],
+        from:"#segicverse",
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$无`, //required usually put at last
+    },
+    {
+        name: "Lo", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#female",
+        species: "#human",
+        status:"#dead",
+        ability: [],
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$擅长算数和行商`, //required usually put at last
+    },
+    {
+        name: "Massao", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["青墨","青 墨"], //required
+        sex: "#male",
+        species: "#loong",
+        from:"#cakeslice",
+        ability: [],
+        relationship:[
+            ["Midori","哥哥"]
+        ],
+        gallery:[],
+        desc:`$<b>来自Cakeslice1的描述</b>
+
+        富有浪漫感、文采和情趣的龙之少年。青缘的哥哥。作为吟游诗人的他，平常以浪迹天涯、作诗饮酒为乐，虽然深爱着自己的妹妹，但是有相当一部分时间两人之间有着物理上等的距离。`, //required usually put at last
+    },
+    {
+        name: "Midori", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["青 缘","青缘"], //required
+        sex: "#female",
+        species: "#loong",
+        from:"#cakeslice",
+        ability: [],
+        relationship:[
+            ["Massao","妹妹"]
+        ],
+        gallery:[],
+        desc:`$<b>来自Cakeslice1的描述</b>
+
+        研究着古代精灵族的遗迹与技术的龙之少女。虽然没有着能走在前列的智力，但仍然把分析和计算作为坚持着的爱好，经常整日整夜的沉浸在算数推理之中。`, //required usually put at last
+    },
+    {
+        name: "Mousee", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#male",
+        species: "#mouse",
+        status:"#dead",
+        ability: ["传送到老鼠的能力","隐蔽不被发现的能力"],
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$老鼠的凶兽。曾经夺权成功过，占有了Ninetail的身体。然而在时间倒流中被抹杀了。`, //required usually put at last
+    },
+    {
+        name: "Nasehita", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#female",
+        species: "#butterfly",
+        ability: [],
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$无`, //required usually put at last
+    },
+    {
+        name: "Naza", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#female",
+        species: "#fox",
+        ability: [],
+        relationship:[
+            ["Haobo","姐姐"],
+            ["Ninetail","学徒"]
+        ],
+        gallery:[],
+        desc:`$详见Haobo的故事。`, //required usually put at last
+    },
+    {
+        name: "Ninetail", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#female",
+        species: "#ninetail",
+        ability: ["复制形态程度的能力","吞噬心脏来增强自身实力程度的能力","死后以小狐狸形态续命程度的能力","在九尾上附着最多九种凶兽能力程度的能力","当受到控制时控制控制者程度的能力","看清对方凶兽能力程度的能力"],
+        relationship:[
+            ["Ookami","朋友"],
+            ["Doragon","朋友"],
+            ["Hikari","主人"],
+            ["DLord","仰慕"],
+            ["Amethcoy","反感"],
+            ["Naza","监护人"],
+            ["Haobo","监护人"],
+            ["Terra","朋友"]
+        ],
+        gallery:[],
+        desc:`$四大天王之三。世界的核心。非常崇敬力量比她强大而又守武德的人。有点傲娇。由于村庄被人类烧毁不得不背井离乡环游世界。最后霸占了某个吸血鬼的洋楼在里面修炼了9000年成为了高尚的九尾狐。虽说是修炼但是因为底子特别好其实都在睡觉罢了……之后成了凶兽，也重新上过学（但是由于战火没有上完高中），认识了Doragon和Ookami。经历过人世间的波澜后发明了Friend制度（「友达制」），废除了凶兽，但是很快被推翻。之后凭借自己的实力再次登上了执政凶兽的宝座。现在的她，能够在九尾上附着最多九种凶兽能力，并可以随时变化，堪称无敌。现在正在研读大学数学。`, //required usually put at last
+    },
+    {
+        name: "Noyuki Erushi", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["之霁 二世","之霁二世"], //required
+        sex: "#female",
+        career:"龙语和龙人语文化研究博士",
+        species: ["#tsdragon","#scaledragon"],
+        ability: [],
+        relationship:[
+        ],
+        gallery:[],
+        
+        desc:`$有两只无名契约龙
+        时空龙是全世界理论只有一只的，控制世界正常运行的龙种。然而，她的母亲——第一代时空龙和一位吟游诗人违规产下了她。他的父亲用龙族听不懂的人类语言给他起的名字，结果经过龙族的空耳和加工后写成了这个奇葩样子。现在他的母亲还在位，所以他不用在乎工作。100岁不到（现在800+岁）就因为违规而被抛弃，躲在天马簇市旁边的一个洞穴里。在曾经周游龙界时结识了一条小龙缔结了契约，洞穴的原主人——一条老龙也和她缔结了契约。好奇龙语是怎么工作的，于是点了凶兽能力研究龙语。由于能力太过强大和Hikari一样都有一个项圈控制能量的使用。现在在欧洲研究当地风土人情。`, //required usually put at last
+    },
+    {
+        name: "Onkin", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["虹晴"], //required
+        sex: "#male",
+        species: "#human",
+        ability: ["改变连接和信息的能力","改变结界信息的能力","通过肢体接触迅速提升和对方好感度的能力"],
+        relationship:[
+            ["Anoko","朋友"],
+            ["Ninetail","喜爱"]
+        ],
+        gallery:[],
+        desc:`$普通的高中生，因考试不理想和Anoko组成「Friends」挑战皇宫，最终成功，进入皇宫（但是Anoko没有作为辅助没有进入）。和正常人一样反感杀戮和嗜血，会尽可能避免杀伤对方。
+
+        挑战的过程中由于不可避免的看到了血腥暴力的场景，特别是Amethcoy对Ninetail的憎恨和恃强凌弱，给他带来了心灵上的创伤。
+        
+        特别喜欢Ninetail（恋人层面上）。`, //required usually put at last
+    },
+    {
+        name: "Ookami", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#female",
+        species: "#whitewolf",
+        ability: [],
+        relationship:[
+            ["Doragon","朋友"],
+            ["Ninetail","朋友"],
+            ["Hikari","朋友"]
+        ],
+        gallery:[],
+        desc:`$四大天王之一
+
+        曾和Doragon、Ninetail是同学，三人由于是年级中少见的兽人从而结为同好。喜欢舞剑但是实际上没有什么战斗力。喜欢安静的饮茶。在凶兽事件中死亡。
+        
+        「五岛式」后，被Amethcoy复活。`, //required usually put at last
+    },
+    {
+        name: "Pyre", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["Omnipyre"], //required
+        sex: "#male",
+        from:"#hotv",
+        ability: [],
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$无`, //required usually put at last
+    },
+    {
+        name: "Racon", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#female",
+        species: "#tanuki",
+        ability: ["变成他人形态（不复制能力）的能力"],
+        relationship:[
+            ["Wulpit","朋友"],
+            ["Fely","朋友"],
+        ],
+        gallery:[],
+        desc:`$见Wulpit故事。`, //required usually put at last
+    },
+    {
+        name: "Rinko", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["Touhou Rinko","东方 麟空","东方麟空"], //required
+        sex: "#female",
+        species: ["#fox","#dragon"],
+        ability: ["附身龙和鸟的能力","定格相机所拍下一切的能力"],
+        equipment:"#rkcamera",
+        relationship:[
+            ["Rinri","妹妹"]
+        ],
+        gallery:[],
+        desc:`$乡村女孩，喜欢摄影，特别是拍摄乡土人情和鸟类。异色瞳。来到首都帮助哥哥经营面包店。`, //required usually put at last
+    },
+    {
+        name: "Rinri", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["Touhou Rinri","东方 麟日","东方麟日"], //required
+        sex: "#male",
+        species: ["#fox","#dragon"],
+        ability: ["有志者事竟成的能力"],
+        relationship:[
+            ["Rinko","哥哥"]
+        ],
+        gallery:[],
+        desc:`$龙王的旧友。父母一只为龙一只为狐狸。异色瞳。在首都开设面包店。详见RTiFE。`, //required usually put at last
+    },
+    {
+        name: "Reshi", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["龙母"], //required
+        sex: "#female",
+        species: ["#sldragon"],
+        ability: ["管辖生殖与遗传的能力"],
+        relationship:[
+            ["DLord","同居"]
+        ],
+        gallery:[],
+        desc:`$无`, //required usually put at last
+    },
+    {
+        name: "Ryoko", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["Tagashita Ryoko","田下 霖子","田下霖子"], //required
+        sex: "#female",
+        species: "#slime",
+        ability: [],
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$旁支角色`, //required usually put at last
+    },
+    {
+        name: "Ryoryu", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["Kazami Ryoryu"], //required
+        sex: "#female",
+        species: ["#winddragon","#scaledragon"],
+        ability: [],
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$旁支角色`, //required usually put at last
+    },
+    {
+        name: "Ryoyu Kokyo", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["龙羽 光琼","龙羽光琼","龙宇 光穹","龙宇光穹"], //required
+        sex: "#female",
+        species: ["#lightdragon","#scaledragon"],
+        career:"龙族铁路公司「龙铁」的总裁",
+        ability: [],
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$
+        龙羽光琼是对内名，龙宇光穹是对外名。
+
+        出生的时候被赋予的名字是前者。然而为了证明自己能够独当一面而重新换成了后者。在龙铁对外事务中从不露面（都是管家露面），以致于许多人认为她只是名存实亡的CEO。
+
+        实际上身高只有1m3-1m4，是萝莉呢（？）`, //required usually put at last
+    },
+    {
+        name: "Segic", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#male",
+        species: "#human",
+        from:"#segicverse",
+        status:"#dead",
+        ability: [],
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$无`, //required usually put at last
+    },
+    {
+        name: "Sewei", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["Ryu no sewei"], //required
+        sex: "#male",
+        species: ["#firedragon","#scaledragon"],
+        ability: [],
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$旁支角色。
+        皇宫中负责联络的小龙（有的时候是），现在在天气宫工作。
+
+        特别的，《陷落天域》中是zky和Pyre的“同学”`, //required usually put at last
+    },
+    {
+        name: "Tenmatsu", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["Mitsurugi Tenmatsu","御剣 天松","御剣天松"], //required
+        sex: "#male",
+        species: "#human",
+        career:"皇宫守卫、新人教练",
+        ability: [],
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$旁支角色`, //required usually put at last
+    },
+    {
+        name: "Terra", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#female",
+        species: "#human",
+        status:"#dead",
+        ability: [],
+        relationship:[
+            ["Ninetail","朋友"]
+        ],
+        gallery:[],
+        desc:`$旁支角色`, //required usually put at last
+    },
+    {
+        name: "Wulpit", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: ["#male","#female"],
+        species: ["#wolf","#fox","#rabbit"],
+        ability: ["在三种形态和种族中转化的能力"],
+        relationship:[
+            ["Racon","朋友"],
+            ["Fely","朋友"]
+        ],
+        gallery:[],
+        desc:`$狼形态是男性，其余是女性。可以在三个身体中切换。而且一个肉体死亡不会影响其他肉体。
+        
+        曾经和Racon和Fely一起当过强盗，经过神仙教化后正常化。在一次凶兽事件中失掉了兔子的变身能力。在Amethcoy的凶兽事件中死亡后在「五岛式」中被复活。
+
+        和Fely一起成为最早受到Onkin三技能影响的小动物`, //required usually put at last
+    },
+    {
+        name: "Yatsujitera", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["Nanjin Yatsujitera","南臣 八十寺","南臣八十寺"], //required
+        sex: "#male",
+        species: "#snake",
+        ability: [],
+        relationship:[
+            ["Ender Snake","以……为原型"]
+        ],
+        gallery:[],
+        desc:`$以末蛇为原型的旁支角色，非常的贪玩。`, //required usually put at last
+    },
+    {
+        name: "Yuki", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["Zajison Yuki"], //required
+        sex: "#male",
+        ability: [],
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$旁支角色`, //required usually put at last
+    },
+    {
+        name: "zhukyRLG", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#male",
+        from:"#segicverse",
+        ability: [],
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$无`, //required usually put at last
+    },
+    {
+        name: "zky", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#male",
+        species: ["#wolf","#dragon"],
+        from:"#segicverse",
+        ability: [],
+        relationship:[
+        ],
+        gallery:[],
+        desc:`$无`, //required usually put at last
+    },
 ]
 
 //use # to specify tags

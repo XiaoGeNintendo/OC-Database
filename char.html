@@ -193,10 +193,6 @@
                 return;
             }
 
-            if (depth == maxDepth) {
-                return;
-            }
-
 
             var obj = findCharWithID(name);
 
@@ -229,6 +225,9 @@
             }
 
 
+            if (depth == maxDepth) {
+                return;
+            }
 
 
             for (let i in obj.relationship) {

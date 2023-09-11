@@ -172,7 +172,7 @@ var chars = [
         name: "Ender Snake", //required
         image: "", //required
         avatar: "", //required
-        otherNames: ["末蛇"], //required
+        otherNames: ["末蛇","终末之蛇"], //required
         sex: "#male",
         species: "#snake",
         location:"#hell",
@@ -449,10 +449,10 @@ var chars = [
         desc:`$四大天王之三。世界的核心。非常崇敬力量比她强大而又守武德的人。有点傲娇。由于村庄被人类烧毁不得不背井离乡环游世界。最后霸占了某个吸血鬼的洋楼在里面修炼了9000年成为了高尚的九尾狐。虽说是修炼但是因为底子特别好其实都在睡觉罢了……之后成了凶兽，也重新上过学（但是由于战火没有上完高中），认识了Doragon和Ookami。经历过人世间的波澜后发明了Friend制度（「友达制」），废除了凶兽，但是很快被推翻。之后凭借自己的实力再次登上了执政凶兽的宝座。现在的她，能够在九尾上附着最多九种凶兽能力，并可以随时变化，堪称无敌。现在正在研读大学数学。`, //required usually put at last
     },
     {
-        name: "Noyuki Erushi", //required
+        name: "Noyuki", //required
         image: "", //required
         avatar: "", //required
-        otherNames: ["之霁 二世","之霁二世"], //required
+        otherNames: ["Noyuki Erushi","之霁 二世","之霁二世"], //required
         sex: "#female",
         status: "#alive",
         location: "#mirai",
@@ -789,6 +789,51 @@ var chars = [
         由于一个特殊的契机，他所在的研究所发明了聚焦黑暗粒子的机器，允许一个生物拥有更多的点数和更大的能力。
         使用这个机器的第一个人，也就是救助Amethcoy的中学生的父亲有着十分自由的思想，认为龙族不应受到龙王中央的管制，因此凶兽化发动革命，但是失败。
         而他则继承了同事的意志，成功夺权。但是凶兽的能力会改变一个人的意志，使其堕落。因此，在执政后，他忘记了自己的初心，成立了等级制。`, //required usually put at last
+    },
+    {
+        name: "Lokikovsky", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["Loki"], //required
+        sex: "#male",
+        species: ["#wolf"],
+        status:"#alive",
+        location: "#kamitoku",
+        ability: [],
+        relationship:[
+            ["O","被寄生"]
+        ],
+        gallery:[],
+        desc:`$出生于等级制度诞生之后，是生活在世外桃源般的村落中的兽下级——最低级的兽人。
+        对于等级制度很不满，决定正义的推翻，但是在O的寄生下逐渐不能矜持住自己的力量`, //required usually put at last
+    },
+    {
+        name: "O", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#male",
+        species: ["#slime"],
+        status:"#alive",
+        location: "#kamitoku",
+        ability: ["大幅度强化他人能力的能力"],
+        relationship:[
+            ["Lokikovsky","寄生"]
+        ],
+        gallery:[],
+        desc:`$被封印的原史莱姆魔王，在Loki的鲁莽下被解放，附身在Loki身上给予他力量，并慢慢的吞噬他的心灵。
+        Loki其实并不想要这份力量，但是不得不接受。
+        一路上，O控制了龙上族的富二代和即将于富二代结婚的兽上族凤凰*，
+        受到Ninetail的反抗后奴化了Ninetail，完全复写了Loki的意志。
+        控制了掌管世界「伦理」与「道德」的龙族*，
+        进而控制了掌管世界的地之龙神「Nekidora」和DLord，
+        从而得以借用Noyuki的力量辅助自己成为他人不敢反抗也不能反抗的「神」。
+        随着Loki和O逐渐奴化住更多的角色，O的力量也大幅上升，最后非常轻松的超过了一切。
+        再登基后，O废止了等级制度，将世界恢复到了一个它所乐意的状态（详见事件「雪地之狼」的事件影响）
+        O的兴趣是玩弄世界上的（几乎所有的）角色的肉体与感情，常常随意的改变时间、空间、世界规则来创造「What If」的时空，最后再通过Noyuki还原。
+        是传统意义上的不可解凶兽？
+        *:无名OC
+        `, //required usually put at last
     },
 ]
 

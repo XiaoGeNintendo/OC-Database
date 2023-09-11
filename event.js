@@ -72,6 +72,7 @@ var events = [
             "Ninetail"
         ],
         effect: [
+            "Ninetail.location=#unknown",
         ]
     },
     {
@@ -144,8 +145,73 @@ var events = [
             "Diary.status=#dead"
         ]
     },
+    {
+        name: "恶劣！矿山盗掘事件！", //required
+        start: 201, //required
+        desc: `Naza和Haobo所经营的矿山被黑心奸商夺取了。两人因此丧命进入地狱。`, //required
+        participant: [ //use id
+            "Naza",
+            "Haobo"
+        ],
+        effect: [
+            "Naza.location=#hell",
+            "Haobo.location=#hell"
+        ]
+    },
+    {
+        name: "Yet Another Beast Event", //required
+        start: 224, //required
+        desc: `Ninetail在凶兽事件中丧命，进入地狱，此时与两只小狐狸相见。`, //required
+        participant: [ //use id
+            "Ninetail"
+        ],
+        effect: [
+            "Ninetail.location=#hell"
+        ]
+    },
+    {
+        name: "补充事件", //required
+        start: 400, //required
+        desc: `该事件作为placeholder，补充了所有已经遗忘的角色进宫的过程`, //required
+        participant: [ //use id
+            "Ninetail",
+            "Naza",
+            "Haobo",
+            "Wulpit",
+            "Racon",
+            "Fely",
+            "Hue",
+            "Nasehita",
+            "Noyuki"
+        ],
+        effect: [
+            "Ninetail.location=#palace",
+            "Naza.location=#palace",
+            "Haobo.location=#palace",
+            "Wulpit.location=#palace",
+            "Racon.location=#palace",
+            "Fely.location=#palace",
+            "Dola.location=#palace",
+            "Hue.location=#palace",
+            "Nasehita.location=#palace",
+            "Noyuki.location=#europe"
+        ]
+    },
 
-    
+    {
+        name: "送你离开", //required
+        start: 420, //required
+        desc: `Naza和Haobo不是妖狐，没有无止尽的寿命，如果不能通过提升尾数和魔力提升寿命很快就会死亡。加上世界凶兽局势大变，Ninetail认为它们必须远离皇宫去修炼，希望能够延长它们的寿命，同时避免他们受到非人的虐待`, //required
+        participant: [ //use id
+            "Ninetail",
+            "Naza",
+            "Haobo",
+        ],
+        effect: [
+            "Naza.location=#unknown",
+            "Haobo.location=#unknown",
+        ]
+    },
     {
         name: "妖狐的出现", //required
         start: 701, //required
@@ -192,7 +258,10 @@ var events = [
             "Ninetail",
             "Doragon",
             "Ookami",
-            "DLord"
+            "DLord",
+            "Wulpit",
+            "Racon",
+            "Fely"
         ],
         effect: [
             "Amethcoy.ability+=「至上的力量」",
@@ -201,6 +270,9 @@ var events = [
             "Doragon.status=#dead",
             "Ookami.status=#dead",
             "DLord.status=#dead",
+            "Racon.status=#dead",
+            "Fely.status=#dead",
+            "Wulpit.status=#dead",
         ]
     },
     {
@@ -246,14 +318,12 @@ var events = [
         participant: [ //use id
             "Amethcoy",
             "Ninetail",
-            "Doragon",
             "Ookami",
             "DLord",
             "Saluvy",
             "Onkin",
             "Anoko",
-            "Fely",
-            "Racon"
+            "Wulpit"
         ],
         effect: [
             "Saluvy.location=#palace",
@@ -262,9 +332,35 @@ var events = [
             "Amethcoy.status=#dead",
             "Onkin.status=#dead",
             "Anoko.status=#dead",
-            "Fely.status=#dead",
-            "Racon.status=#dead",
             "Wulpit.location=#unknown"
+        ]
+    },
+    {
+        name: "雪地之狼", //required
+        start: 720,
+        desc: `详见O词条`, //required
+        participant: [ //use id
+            "Ninetail",
+            "Doragon",
+            "Ookami",
+            "DLord",
+            "Saluvy",
+            "Lokikovsky",
+            "O",
+            "Noyuki",
+            "Hikari",
+            "Reshi",
+            "Wulpit",
+            "Rinri",
+            "Rinko"
+        ],
+        effect: [
+            "Saluvy.status=#dead",
+            "Ninetail.location=#palace",
+            "Ookami.status=#alive",
+            "Wulpit.location=#palace",
+            "Lokikovsky.location=#palace",
+            "O.location=#palace"
         ]
     },
 ] //this list will be sorted in the order of 'end' inc

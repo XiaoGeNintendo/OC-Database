@@ -201,6 +201,19 @@ var tags={
         desc:`米莱的最大都市`,
         icon:"location arrow"
     },
+    "kamitoku":{
+        parent:"mirai",
+        name:"神德",
+        desc:`米莱的城市，龙穴以西，周围被常年积雪的上神德山环抱，但是城市本身周围没有积雪。被认为是神灵所栖息的地方。`,
+        icon:"location arrow"
+    },
+    
+    "europe":{
+        parent:null,
+        name:"欧洲",
+        desc:`现在的西欧部分`,
+        icon:"location arrow"
+    },
     "hell":{
         parent:null,
         name:"地狱",

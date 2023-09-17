@@ -496,6 +496,7 @@ var chars = [
         species: "#whitewolf",
         status: "#alive",
         location: "#unknown",
+        equipment:"#osword",
         ability: [],
         relationship:[
             ["Doragon","朋友"],
@@ -834,6 +835,37 @@ var chars = [
         是传统意义上的不可解凶兽？
         *:无名OC
         `, //required usually put at last
+    },
+    {
+        name: "R", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: ["Rin"], //required
+        sex: "#male",
+        species: "#human",
+        status:"#alive",
+        location: "#koria",
+        equipment:["#r_sword"],
+        ability: ["不会受到非凶兽技能的影响、直接或间接伤害"],
+        relationship:[
+            ["Im","队友"],
+            ["Arg","队友"],
+            ["Deg","队友"],
+            ["O","讨伐"]
+        ],
+        gallery:[],
+        desc:`$<img src="image/R.png"/> 
+        <i>Rin的珍藏之言</i>
+
+        哪怕写作R也读作Rin。
+        性格冷静而诡异，说话直言不讳，看上去也令人感觉高冷而难以靠近。
+        R的早年对数学颇有兴趣，对于「零」与「不存在之数」研究深入，能够创造出有一定智能的战斗机器人。
+        然而O的出现给他的研究和家乡带来了灾难，于是他利用自己所学的知识踏上了讨伐魔王的征程。
+        千年前讨伐O大魔王的勇者之一（也是领导者），持单手剑「炎魔」。在封印了大魔王O后收到了人们的赞佩。
+        然而由于小人的嫉妒与别有用心，他和他的队伍遭到了诬陷。
+        有着巨大的力量的他们被人们当成了「凶兽」，用特别的力量封印在Koria国。
+        千年之后，随着O的解封，他的封印的力量也逐渐削弱。这次的他，虽然以真正的凶兽的身份出现，但并没有被凶兽的力量所侵蚀。
+        他以极为冷静的态度，适应着这个新的世界，向复活的O拔剑。只不过，这一次，他并不会被「无辜」的群众所拖累和绊倒。`, //required usually put at last
     },
 ]
 

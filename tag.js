@@ -1,6 +1,13 @@
 var tags={
-    "dragon":{
+
+    "species":{
         parent:null,
+        name:"种族",
+        desc:"种族的根标签，主要有三个，分布在世界各地",
+        icon:"dragon"
+    },
+    "dragon":{
+        parent:"species",
         name:"龙族",
         desc:"三大种族之一，又龙王掌管。大多寿命较长、有一定智力、巨大的力量和魔法使用能力。",
         icon:"dragon"
@@ -56,7 +63,7 @@ var tags={
     },
 
     "human":{
-        parent:null,
+        parent:"species",
         name:"人类",
         desc:"三大种族之一，地球本真的智慧物种。大多有一定的社会性和智力。",
         icon:"blind"
@@ -75,7 +82,7 @@ var tags={
     },
 
     "beast":{
-        parent:null,
+        parent:"species",
         name:"兽族",
         desc:"三大种族之一。在魔力诱导下产生的高级兽类，与平常的兽类不同，能理解龙人语并使用魔法。有的以人类形态与其他种族混居，也有的保持着兽形态。只有少数有较高的智力，但相比人类而言力量更大。",
         icon:"paw"
@@ -154,21 +161,45 @@ var tags={
     },
 
 
-    "rkcamera":{
+    "equipment":{
         parent:null,
+        name:"装备",
+        desc:"所有装备的根标签",
+        icon:"camera"
+    }, 
+    "rkcamera":{
+        parent:"equipment",
         name:"Rinko的相机",
         desc:"普普通通的拍立得相机，但是一家人辛辛苦苦存钱所换来的，承载了Rinko的梦想。能够定格住拍照框内的物体。",
         icon:"camera"
     }, 
     "anecklace":{
-        parent:null,
+        parent:"equipment",
         name:"Amethcoy的项链",
         desc:"Amethcoy祖传的项链，具有很强的灵性，能够贮存部分能力。有人说可以和灵魂交互。",
         icon:"camera"
     },
+    "osword":{
+        parent:"equipment",
+        name:"Ookami的剑",
+        desc:"Ookami的剑（可能是日本刀？）。没有什么特别的能力，Ookami也不会战斗意义上的舞剑，只会做作秀。",
+        icon:"camera"
+    },
+    "r_sword":{
+        parent:"equipment",
+        name:"鬼剑「炎魔」",
+        desc:"单手剑。能造成火焰伤害。因为有剑之精灵寄居其中，所以可以自主行动。",
+        icon:"camera"
+    },
 
-    "ryuto":{
+    "loc":{
         parent:null,
+        name:"位置",
+        desc:`地点的根标签`,
+        icon:"location arrow"
+    }, 
+    "ryuto":{
+        parent:"loc",
         name:"龙都",
         desc:`位置大概在现在的南京，在Zogo国内独自为国，是皇宫的所在地，由龙王直接管辖。
         根号江、大川两条河流穿过城市，将城市分为北、西和南区。
@@ -190,7 +221,7 @@ var tags={
         icon:"map marker"
     }, 
     "mirai":{
-        parent:null,
+        parent:"loc",
         name:"米莱",
         desc:`Zogo国的地区，位置在现在的新疆东部，最大城市龙穴。还有神德、乌合、彩陵、地子等大城市`,
         icon:"location arrow"
@@ -209,71 +240,96 @@ var tags={
     },
     
     "europe":{
-        parent:null,
+        parent:"loc",
         name:"欧洲",
         desc:`现在的西欧部分`,
         icon:"location arrow"
     },
+    "koria":{
+        parent:"loc",
+        name:"Koria国",
+        desc:`位置在现在的朝鲜半岛`,
+        icon:"location arrow"
+    },
     "hell":{
-        parent:null,
+        parent:"loc",
         name:"地狱",
         desc:`兽族死后所去之处。`,
         icon:"location arrow"
     },
+    "tenkigo":{
+        parent:"loc",
+        name:"天气宫",
+        desc:`读作ten'ki'go。掌管魔法的运行、时间的流逝、魔法契约的执行、天气的运行`,
+        icon:"map marker"
+    }, 
+
     "unknown":{
         parent:null,
         name:"未知",
         desc:`薛定谔的设定`,
         icon:"question circle"
     },
-    "tenkigo":{
+
+    "gender":{
         parent:null,
-        name:"天气宫",
-        desc:`读作ten'ki'go。掌管魔法的运行、时间的流逝、魔法契约的执行、天气的运行`,
-        icon:"map marker"
-    }, 
+        name:"性别",
+        desc:"性别的根标签",
+        icon:"male"
+    },
 
     "male":{
-        parent:null,
+        parent:"gender",
         name:"男",
         desc:"男性/公/雄性",
         icon:"male"
     },
     "female":{
-        parent:null,
+        parent:"gender",
         name:"女",
         desc:"女性/母/雌性",
         icon:"female"
     },
 
-
-    "hotv":{
+    "source":{
         parent:null,
+        name:"来源",
+        desc:"来源的根标签",
+        icon:"book"
+    },
+    "hotv":{
+        parent:"source",
         name:"HotV",
         desc:"Heart of the Vortex是Zhuky.RLG所著的系列，属于旁支系列的设定。",
         icon:"book"
     },
     "segicverse":{
-        parent:null,
+        parent:"source",
         name:"Segicverse",
         desc:"Segicverse是Zhuky.RLG所著的系列，属于旁支系列的设定。",
         icon:"book"
     },
     "cakeslice":{
-        parent:null,
+        parent:"source",
         name:"Cakeslice",
         desc:"Cakeslice是XGN所著的系列，属于旁支系列的设定。",
         icon:"book"
     },
 
-    "alive":{
+    "status":{
         parent:null,
+        name:"状态",
+        desc:"状态的根标签",
+        icon:"fire"
+    },
+    "alive":{
+        parent:"status",
         name:"存活",
         desc:"该角色存活！但是马上就可能寄了？",
         icon:"fire"
     },
     "dead":{
-        parent:null,
+        parent:"status",
         name:"已故",
         desc:"该角色已丧命，但不代表TA不会再复活。",
         icon:"skull crossbones"

@@ -36,6 +36,12 @@ var tags={
         desc:"使用风属性的龙",
         icon:"dragon"
     },
+    "darkdragon":{
+        parent:"dragon",
+        name:"黑龙",
+        desc:"使用暗属性的龙，比较强大和稀有。",
+        icon:"dragon"
+    },
     
     "sldragon":{
         parent:"lightdragon",
@@ -80,6 +86,12 @@ var tags={
         desc:"精通暗属性的精灵。",
         icon:"hiking"
     },
+    "dwarf":{
+        parent:"human",
+        name:"矮人",
+        desc:"擅长工匠的种族，较为矮小。其实不是人类，但是长得太像人类被分类到人类之下。",
+        icon:"hiking"
+    },
 
     "beast":{
         parent:"species",
@@ -121,6 +133,12 @@ var tags={
         parent:"fox",
         name:"双尾狐",
         desc:"较为强力的狐狸",
+        icon:"firefox browser"
+    },
+    "sixtail":{
+        parent:"fox",
+        name:"六尾狐",
+        desc:"极为强力的狐狸",
         icon:"firefox browser"
     },
     "ninetail":{
@@ -190,6 +208,36 @@ var tags={
         name:"鬼剑「炎魔」",
         desc:"单手剑。能造成火焰伤害。因为有剑之精灵寄居其中，所以可以自主行动。",
         icon:"camera"
+    },
+    "im_staff":{
+        parent:"equipment",
+        name:"法杖「雪雉」",
+        desc:"法杖。可以射出无属性魔法，能使对方凝滞或无法行动1s（基础数值）。",
+        icon:"camera"
+    },
+    "arg_bow":{
+        parent:"equipment",
+        name:"弩「<i>Annihilator</i>」",
+        desc:"可以同时射出多根箭的弩。由于使用了可以注魔的材料，可以注入魔法增加伤害或射程。",
+        icon:"camera"
+    },
+    "deg_shield":{
+        parent:"equipment",
+        name:"盾「真实之盾」",
+        desc:"虚拟的魔法屏障可以沿着盾面延展以形成更大的保护范围，同时盾本身会吸收伤害和魔法力量来自我修复。",
+        icon:"camera"
+    },
+    "relic":{
+        parent:"equipment",
+        name:"遗物",
+        desc:"由Deg的能力产生的具有一定魔法效应的小浮游物件",
+        icon:"atom"
+    },
+    "deg_relic1":{
+        parent:"relic",
+        name:"遗物「Barrier of Ego」",
+        desc:"持有者更难被精神控制",
+        icon:"atom"
     },
 
     "loc":{

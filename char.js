@@ -867,6 +867,87 @@ var chars = [
         千年之后，随着O的解封，他的封印的力量也逐渐削弱。这次的他，虽然以真正的凶兽的身份出现，但并没有被凶兽的力量所侵蚀。
         他以极为冷静的态度，适应着这个新的世界，向复活的O拔剑。只不过，这一次，他并不会被「无辜」的群众所拖累和绊倒。`, //required usually put at last
     },
+    {
+        name: "Im", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#female",
+        species: "#sixtail",
+        status:"#alive",
+        location: "#koria",
+        equipment:["#im_staff"],
+        ability: ["可以让部分实体的某些属性乘或除最大九倍"],
+        relationship:[
+            ["R","队友"],
+            ["Arg","队友"],
+            ["Deg","队友"],
+            ["O","讨伐"]
+        ],
+        gallery:[],
+        desc:`$千年前的六尾妖狐，肉体早已死去只剩下灵体。附着在少女（其实是萝莉？单纯只是对年轻的渴望）的身上成为了现在所熟知的Im。职位是术士、辅助和治疗。
+        准确来说Im是R在队伍里的别称，狐狸或是宿主的原名早已被忘却。
+        Im加入勇者的队伍并不是因为与魔王有恩怨，而只是单纯的对探险感兴趣。
+        在沉睡中，Im自然的进化成了九尾狐，在基础能力上与Ninetail持平。
+
+        关于她的能力，需要注明：同一个实体的同一个属性不能被重复使用该技能（但是可以复原或撤销效果）。同时一般不能对常见物体的大小、数量（弓箭、魔法能量团等projectile除外）做修改。
+        但是可以改变例如角色的魔法抗性。常见的使用例子是自己射出的魔法能量数量*9，冻结时间*9，那么敌方就会受到81s的不能移动debuff。
+        她的原型非常的显然，相信大家可以轻松发现。`, //required usually put at last
+    },
+    {
+        name: "Arg", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#female",
+        species: "#darkdragon",
+        status:"#alive",
+        location: "#koria",
+        equipment:["#arg_bow"],
+        ability: ["弓箭射到的实体损失一个指定能力，技能发动方获得对应该能力的凶手点数（有亏损）","弓箭射到的实体损失一个指定能力，由技能发动方替换一个等值能力"],
+        relationship:[
+            ["R","队友"],
+            ["Im","队友"],
+            ["Deg","队友"],
+            ["O","讨伐"]
+        ],
+        gallery:[],
+        desc:`$神秘的黑龙，原本是O的手下大将，但是被勇者一行击败后被“攻略”，成为了勇者的一员。名字是R起的，原名不详。职位是远程。
+        
+        关于能力的说明：两个能力选择最多一个发动，对于每个同样的对象最多发动1次。
+        能力1所失去的能力不只是凶兽能力，也可以是个人、种族能力甚至只是一个人的长处。部分对应获得点数如下：
+        长处、优点 -- 0点
+        原1、2、3点的能力 -- 1点
+        原4点的能力 -- 2点
+        原8点的能力 -- 6点
+        原16点的能力 -- 10点
+
+        能力2所替换的能力必须与原能力点数一致，不可由多个能力替换，不可替换为点数少于或多于原点数的能力。
+        `, //required usually put at last
+    },
+    {
+        name: "Deg", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex: "#male",
+        species: "#dwarf",
+        status:"#alive",
+        location: "#koria",
+        equipment:["#deg_shield","#deg_relic1"],
+        ability: ["被阻挡的伤害可以累计以产生「遗物」"],
+        relationship:[
+            ["R","队友"],
+            ["Im","队友"],
+            ["Arg","队友"],
+            ["O","讨伐"]
+        ],
+        gallery:[],
+        desc:`$最早加入勇者队伍的人。愤青般的热心。职位是先锋和防御。
+        自然，名字是R起的代号，原名不详。
+        关于能力的说明：产生的遗物对于队伍中每个人都生效。
+        `, //required usually put at last
+    },
 ]
 
 //use # to specify tags

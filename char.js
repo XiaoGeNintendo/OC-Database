@@ -819,7 +819,11 @@ var chars = [
         location: "#kamitoku",
         ability: ["大幅度强化他人能力的能力"],
         relationship:[
-            ["Lokikovsky","寄生"]
+            ["Lokikovsky","寄生"],
+            ["R","被讨伐"],
+            ["Arg","被讨伐"],
+            ["Deg","被讨伐"],
+            ["Im","被讨伐"],
         ],
         gallery:[],
         desc:`$被封印的原史莱姆魔王，在Loki的鲁莽下被解放，附身在Loki身上给予他力量，并慢慢的吞噬他的心灵。
@@ -846,7 +850,7 @@ var chars = [
         status:"#alive",
         location: "#koria",
         equipment:["#r_sword"],
-        ability: ["不会受到非凶兽技能的影响、直接或间接伤害"],
+        ability: [],
         relationship:[
             ["Im","队友"],
             ["Arg","队友"],
@@ -875,9 +879,9 @@ var chars = [
         sex: "#female",
         species: "#sixtail",
         status:"#alive",
-        location: "#koria",
+        location: "#unknown",
         equipment:["#im_staff"],
-        ability: ["可以让部分实体的某些属性乘或除最大九倍"],
+        ability: [],
         relationship:[
             ["R","队友"],
             ["Arg","队友"],
@@ -902,9 +906,9 @@ var chars = [
         sex: "#female",
         species: "#darkdragon",
         status:"#alive",
-        location: "#koria",
+        location: "#unknown",
         equipment:["#arg_bow"],
-        ability: ["弓箭射到的实体损失一个指定能力，技能发动方获得对应该能力的凶手点数（有亏损）","弓箭射到的实体损失一个指定能力，由技能发动方替换一个等值能力"],
+        ability: [],
         relationship:[
             ["R","队友"],
             ["Im","队友"],
@@ -934,8 +938,8 @@ var chars = [
         species: "#dwarf",
         status:"#alive",
         location: "#koria",
-        equipment:["#deg_shield","#deg_relic1"],
-        ability: ["被阻挡的伤害可以累计以产生「遗物」"],
+        equipment:["#deg_shield"],
+        ability: [],
         relationship:[
             ["R","队友"],
             ["Im","队友"],

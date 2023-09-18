@@ -21,8 +21,7 @@
 
         <div class="ui menu sticky" style="margin-bottom: 20px; margin-top: 20px;">
             <a class="item" href="index.html">
-                <img class="ui image" height="30" src="logo.png"
-                    alt="Website Logo" />
+                <img class="ui image" height="30" src="logo.png" alt="Website Logo" />
             </a>
             <a class="item" href="chars.html">
                 <i class="user tie icon"></i>
@@ -43,6 +42,11 @@
             You can zoom in the graph by selecting a time range
             <div id="timelineGraph"></div>
 
+            <div class="ui labeled input">
+                <div class="ui label">Filter Arc</div>
+                <select class="ui selection dropdown" id="arcSel" onchange="onSel()">
+                </select>
+            </div>
             <div id="modals"></div>
         </div>
     </div>
@@ -53,25 +57,29 @@
         //parse url
         var param = new URLSearchParams(window.location.search);
         var preloadEv = parseInt(param.get("ev"));
+        var arc = param.get("arc");
 
         //prepare graph data
         var graphData = [];
         for (let i in events) {
             var ev = events[i];
-            graphData.push({
-                x: ev.start,
-                description: ev.desc,
-                name: ev.name + (ev.start == ev.end ? "" : "(Start)"),
-                ev: i
-            });
 
-            if (ev.end != ev.start) {
+            if (arc != null && ev.arc == arc || arc == null) {
                 graphData.push({
-                    x: ev.end,
-                    description: ev.desc,
-                    name: ev.name + "(End)",
+                    x: ev.start,
+                    description: (ev.arc ? "Belongs to:" + arcs[ev.arc] + "<br/>" : "") + ev.desc,
+                    name: ev.name + (ev.start == ev.end ? "" : "(Start)"),
                     ev: i
                 });
+
+                if (ev.end != ev.start) {
+                    graphData.push({
+                        x: ev.end,
+                        description: ev.desc,
+                        name: ev.name + "(End)",
+                        ev: i
+                    });
+                }
             }
         }
 
@@ -110,16 +118,15 @@
                     }
                 }
             },
-
             title: {
                 text: 'World Timeline Graph'
             },
-            subtitle:{
-                text:"部分事件发生时间已遗忘"
+            subtitle: {
+                text: arc ? "当前显示Arc:" + arcs[arc] : "部分事件发生时间已遗忘"
             },
             series: [{
                 dataLabels: {
-                    allowOverlap: false,
+                    allowOverlap: true,
                     format: '<span style="color:{point.color}">● </span><span style="font-weight: bold;" > ' +
                         '{dt point.x}</span><br/>{point.name}'
                 },
@@ -129,6 +136,24 @@
                 data: graphData
             }]
         });
+
+        //adding arc selection
+        function onSel() {
+            if ($('#arcSel').val() == 'null') {
+                window.location = '?';
+            } else {
+                window.location = "?arc=" + $('#arcSel').val()
+            }
+        }
+
+        var html = '<option value="null">Show all</option>';
+        for (var i in arcs) {
+            html += `<option value="${i}">${arcs[i]}</option>`
+        }
+        $('#arcSel').html(html);
+        if (arc != null) {
+            $('#arcSel').val(arc);
+        }
 
         //adding modals
         $('#modals').html(generateEventModals());
@@ -140,7 +165,7 @@
                 $('#modal' + preloadEv).modal('show');
             }
         }
-        setTimeout("__()", 1000);
+        setTimeout("__()", 200);
     </script>
 </body>
 

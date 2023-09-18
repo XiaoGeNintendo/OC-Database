@@ -382,4 +382,10 @@ var tags={
         desc:"该角色已丧命，但不代表TA不会再复活。",
         icon:"skull crossbones"
     },
+    "sealed":{
+        parent:"status",
+        name:"封印",
+        desc:"该角色被封印，无法行动。",
+        icon:"handshake slash"
+    },
 }

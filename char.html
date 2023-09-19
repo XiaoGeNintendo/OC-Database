@@ -23,8 +23,7 @@
 
         <div class="ui menu sticky" style="margin-bottom: 20px; margin-top: 20px;">
             <a class="item" href="index.html">
-                <img class="ui image" height="30" src="logo.png"
-                    alt="Website Logo" />
+                <img class="ui image" height="30" src="logo.png" alt="Website Logo" />
             </a>
             <a class="item" href="chars.html">
                 <i class="user tie icon"></i>
@@ -41,7 +40,7 @@
         </div>
 
         <div id="content" style="margin-bottom: 20px; margin-top: 20px;">
-            <div class="ui clearing segment">
+            <div class="ui clearing segment toplevel">
                 <h2 class="ui left floated header">
                     <img src="image/nodata.jpg" class="ui circular image" id="avatar" alt="Character Avatar">
                     <b id="header">Character Name</b>
@@ -64,7 +63,7 @@
             <div class="ui divider"></div>
 
 
-            <div class="ui segment">
+            <div class="ui segment toplevel">
                 <table class="ui very basic fluid celled table">
                     <tr>
                         <td class="ui collapsing"><img src="image/nodata.jpg" id="image" alt="Character Image" /></td>
@@ -77,29 +76,31 @@
                 </table>
             </div>
 
-            <div class="ui segment">
+            <div class="ui segment toplevel">
                 <h3>Related Characters</h3>
                 <div class="ui feed" id="rc">
 
                 </div>
             </div>
 
-            <div class="ui segment">
+            <div class="ui segment toplevel">
                 <h3>Related Events</h3>
                 <div id="re"></div>
             </div>
-            <div class="ui segment">
+            <div class="ui segment toplevel">
                 <h3>Relationship Graph</h3>
                 <div id="relationGraph" style="height: 400px; margin-bottom: 20px; margin-top: 20px;"></div>
             </div>
 
-            <div class="ui segment">
+            <div class="ui segment toplevel">
                 <h3>Gallery</h3>
-                <i>Note: In case of multiple pictures, the gallery may be large in size, which may result in extra cost when
-                    using a traffic-based network connection. Please click the button below to show:</i> <br/>
-                    
-                <i>Note: You can show the full-sized picture by right-clicking the picture and selecting 'Opening In New Tab'.</i> <br/>
-                <button class="ui button" onclick="showGallery()" id="gbtn">Show Gallery</button> <br/>
+                <i>Note: In case of multiple pictures, the gallery may be large in size, which may result in extra cost
+                    when
+                    using a traffic-based network connection. Please click the button below to show:</i> <br />
+
+                <i>Note: You can show the full-sized picture by right-clicking the picture and selecting 'Opening In New
+                    Tab'.</i> <br />
+                <button class="ui button" onclick="showGallery()" id="gbtn">Show Gallery</button> <br />
                 <div class="ui cards" id="gallery">
 
                 </div>
@@ -111,8 +112,6 @@
     </div>
 
     <script>
-        $('.ui.sticky').sticky({ context: '#content' });
-        $('#time').popup({ on: 'focus' });
 
 
         //parse url
@@ -305,13 +304,37 @@
                             </div>
                         </div>`
             }
-            
-            if(html==""){
-                html="<i>None</i>"
+
+            if (html == "") {
+                html = "<i>None</i>"
             }
             $('#gallery').html(html);
             $('#gbtn').hide();
         }
+
+        //play animation
+        $('.ui.segment .item').transition('hide')
+        $('.ui.segment.toplevel')
+            .transition('hide')
+            .transition({
+                animation: 'scale in',
+                reverse: 'auto', // default setting
+                interval: 200,
+                onComplete: function () {
+                    console.log(this)
+                    $(this).find('.item')
+                        .transition({
+                            animation: 'scale in',
+                            reverse: 'auto',
+                            interval: 100
+                        });
+
+                    $('.ui.sticky').sticky({ context: '#content' });
+                }
+            });
+
+
+        $('#time').popup({ on: 'focus' });
     </script>
 </body>
 

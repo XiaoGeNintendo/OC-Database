@@ -22,8 +22,7 @@
 
         <div class="ui menu sticky" style="margin-bottom: 20px; margin-top: 20px;">
             <a class="item" href="index.html">
-                <img class="ui image" height="30" src="logo.png"
-                    alt="Website Logo" />
+                <img class="ui image" height="30" src="logo.png" alt="Website Logo" />
             </a>
             <a class="item" href="chars.html">
                 <i class="user tie icon"></i>
@@ -49,16 +48,13 @@
     </div>
 
     <script>
-        $('.ui.sticky').sticky({ context: '#content' });
-
-
-        var graphData=[];
-        for(let i in tags){
+        var graphData = [];
+        for (let i in tags) {
             graphData.push({
-                name:tags[i].name,
-                id:i,
-                description:tags[i].desc,
-                parent:tags[i].parent
+                name: tags[i].name,
+                id: i,
+                description: tags[i].desc,
+                parent: tags[i].parent
             });
         }
 
@@ -99,11 +95,23 @@
 
         $('#modals').html(generateModals());
         //prepare list
-        var html="";
-        for(let i in tags){
-            html+=renderSingleProperty("#"+i);
+        var html = "";
+        for (let i in tags) {
+            html += renderSingleProperty("#" + i);
         }
         $('#list').html(html);
+
+        //ui animation
+        $('.ui.label')
+            .transition('hide')
+            .transition({
+                animation: 'scale in',
+                reverse: 'auto', // default setting
+                interval: 20,
+                onComplete: function () {
+                    $('.ui.sticky').sticky({ context: '#content' });
+                }
+            });
     </script>
 </body>
 

@@ -110,6 +110,7 @@ Events are defined in `event.js`
     name: "Test Event", //required
     start: 1.114, //required in timestamp. Start time of this event.
     end: 2.114, //Not required. End time of this event. Default to be start time.
+    arc: "testArc", //Not required. The arc id(aka. chapters/main parts/big era/series) this event belongs in
     desc: "This is a test event that occurs on the 1st year.", //required, description. DOES NOT NEED TEMPLATE STRING
     participant: [ //required. use id
         "hikari",
@@ -120,6 +121,22 @@ Events are defined in `event.js`
     ]
 },
 ```
+
+And the arc table:
+```js
+var arcs = {
+    "ancient": "...", //key: arcID value: displayName
+    "rinri": ".",
+    "ninetail": "...",
+    "amethcoy": "...",
+    "hikari": "...",
+    "saluvy": "...",
+    "naza": "...",
+    "o1": "...",
+    "o": "...",
+};
+```
+**Note: Every arcID should have value in arcs**
 
 Effects consists of several parts:
 

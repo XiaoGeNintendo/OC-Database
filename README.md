@@ -122,7 +122,7 @@ Events are defined in `event.js`
 },
 ```
 
-And the arc table:
+And the arc table(in `event.js` after events):
 ```js
 var arcs = {
     "ancient": "...", //key: arcID value: displayName
@@ -136,7 +136,7 @@ var arcs = {
     "o": "...",
 };
 ```
-**Note: Every arcID should have value in arcs**
+**Note: Every arcID should have a corresponding value in `arcs`**
 
 Effects consists of several parts:
 
@@ -174,11 +174,13 @@ You can either
 - contact me
 - open issue
 - read source code and implement it yourself
+
 ### Q: How is this site made possible?
 - XiaoGeNintendo from HellHoleStudios
 - Some guy from Stackoverflow
-- Highcharts
-- Jquery
-- Fomantic-UI
-- Cytoscape.js
-- FontAwesome
+- [Highcharts](https://www.highcharts.com/)
+- [JQuery](https://www.jquery.com)
+- [Fomantic-UI](https://fomantic-ui.com/)
+- [Cytoscape.js](https://js.cytoscape.org/)
+- [Cytoscape-D3-force](https://github.com/shichuanpo/cytoscape.js-d3-force)
+- [FontAwesome](https://fontawesome.com/)

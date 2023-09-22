@@ -7,10 +7,15 @@
     <script src="https://cdn.staticfile.org/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/fomantic-ui/2.9.2/semantic.min.css">
     <script src="https://cdn.staticfile.org/fomantic-ui/2.9.2/semantic.min.js"></script>
-    <script src="https://unpkg.com/layout-base/layout-base.js"></script>
-    <script src="https://unpkg.com/cose-base/cose-base.js"></script>
-    <script src="https://unpkg.com/cytoscape-fcose/cytoscape-fcose.js"></script>
     <script src="https://cdn.staticfile.org/cytoscape/3.26.0/cytoscape.min.js"></script>
+    <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+    <script src="https://d3js.org/d3-quadtree.v1.min.js"></script>
+    <script src="https://d3js.org/d3-timer.v1.min.js"></script>
+    <script src="https://d3js.org/d3-force.v2.min.js"></script>
+    <script>
+        window['d3-force'] = d3
+    </script>
+    <script src="cytoscape-d3.js"></script>
     <script src="iconset.js"></script>
     <script src="tag.js"></script>
     <script src="char.js"></script>
@@ -202,7 +207,6 @@
                         data: {
                             id: name,
                             label: name,
-                            color: "#123456"
                         }
                     }
                 );
@@ -249,10 +253,14 @@
 
         dfsRelationship(id, 0);
 
-        console.log(graphData);
+        // console.log(graphData);
 
-        cytoscape.use(cytoscapeFcose);
 
+        function hashColor(str){
+            for(var i=0;i<str.length;i++){
+                
+            }
+        }
         var cy = cytoscape({
 
             container: $('#relationGraph'), // container to render in
@@ -263,8 +271,11 @@
                 {
                     selector: 'node',
                     style: {
-                        'background-color': '#666',
-                        "label": "data(label)"
+                        'background-color': hashColor(ele.id),
+                        "label": "data(label)",
+                        'height': function (ele) { return Math.max(5, ele.degree() * 2) },
+                        'width': function (ele) { return Math.max(5, ele.degree() * 2) },
+                        "font-size": 12,
                     }
                 },
 
@@ -277,15 +288,31 @@
                         'target-arrow-shape': 'triangle',
                         'curve-style': 'bezier',
                         "label": "data(label)",
+                        "font-size": 8,
                     }
                 }
             ],
-
             layout: {
-                name: 'fcose'
-            }
-
+                name: 'd3-force',
+                animate: true,
+                fixedAfterDragging: false,
+                linkId: function id(d) {
+                    return d.id;
+                },
+                linkDistance: 80,
+                manyBodyStrength: -300,
+                ready: function () { },
+                stop: function () { },
+                randomize: false,
+                infinite: true
+                // some more options here...
+            },
         });
+        // cy.layout({
+        //     name:'d3-force',
+        //     animate: true,
+        // }).run();
+
 
         //gallery
         function showGallery() {
@@ -321,7 +348,7 @@
                 reverse: 'auto', // default setting
                 interval: 200,
                 onComplete: function () {
-                    console.log(this)
+                    // console.log(this)
                     $(this).find('.item')
                         .transition({
                             animation: 'scale in',

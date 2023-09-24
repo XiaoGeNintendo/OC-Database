@@ -189,14 +189,11 @@
         $('#re').html(reh);
 
         //generate a graph about relationships
-        var maxDepth = 3;
+        var maxDepth = 2;
         var visited = {};
         var graphData = [];
+        var objs = [];
         function dfsRelationship(name, depth) {
-            if (visited[name]) {
-                return;
-            }
-
 
             var obj = findCharWithID(name);
 
@@ -224,6 +221,7 @@
                     }
                 );
 
+                objs.push(name);
                 visited[name] = true;
             }
 
@@ -232,35 +230,68 @@
                 return;
             }
 
-
             for (let i in obj.relationship) {
                 var rel = obj.relationship[i]; //[to,label]
-                graphData.push(
-                    {
-                        data: {
-                            source: name,
-                            target: rel[0],
-                            label: rel[1],
-                            arrow: "triangle",
 
-                        }, classes: 'autorotate'
-                    }
-                );
-
-                dfsRelationship(rel[0], depth + 1);
+                if(!visited[rel[0]]){
+                    dfsRelationship(rel[0], depth + 1);
+                }
             }
         }
 
         dfsRelationship(id, 0);
 
+        console.log(objs,graphData);
+        
+        for (let i in objs) {
+            let obj = findCharWithID(objs[i]);
+            for (let j in obj.relationship) {
+                var rel = obj.relationship[j]; //[to,label]
+                console.log(rel);
+                if (objs.includes(rel[0])) {
+                    graphData.push(
+                        {
+                            data: {
+                                source: objs[i],
+                                target: rel[0],
+                                label: rel[1],
+                                arrow: "triangle",
+
+                            }, classes: 'autorotate'
+                        }
+                    );
+                }
+            }
+        }
+
+        console.log(objs,graphData);
         // console.log(graphData);
 
 
-        function hashColor(str){
-            for(var i=0;i<str.length;i++){
-                
+        function hashColor(str) {
+            console.log(str);
+
+            if (str === undefined || str === null) {
+                return "#ccc";
             }
+
+            var hash = 0;
+            for (var i = 0; i < str.length; i++) {
+                hash = ((hash + str.charCodeAt(i)) * 114479) % 1000000007;
+            }
+
+            console.log(str, hash);
+            var list = "0123456789abcdef0123456789abcdef";
+            var res = "#";
+
+            for (var i = 0; i < 6; i++) {
+                console.log()
+                res += list[hash % 16 + 15];
+                hash >>= 4;
+            }
+            return res;
         }
+
         var cy = cytoscape({
 
             container: $('#relationGraph'), // container to render in
@@ -271,10 +302,10 @@
                 {
                     selector: 'node',
                     style: {
-                        'background-color': hashColor(ele.id),
+                        'background-color': function (ele) { return hashColor(ele.id()) },
                         "label": "data(label)",
-                        'height': function (ele) { return Math.max(5, ele.degree() * 2) },
-                        'width': function (ele) { return Math.max(5, ele.degree() * 2) },
+                        'height': function (ele) { return ele.degree() * 4 },
+                        'width': function (ele) { return ele.degree() * 4 },
                         "font-size": 12,
                     }
                 },
@@ -283,8 +314,8 @@
                     selector: 'edge',
                     style: {
                         'width': 3,
-                        'line-color': '#ccc',
-                        'target-arrow-color': '#ccc',
+                        'line-color': function (ele) { return hashColor(ele.data().label) },
+                        'target-arrow-color': function (ele) { return hashColor(ele.data().label) },
                         'target-arrow-shape': 'triangle',
                         'curve-style': 'bezier',
                         "label": "data(label)",

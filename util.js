@@ -202,7 +202,7 @@ function generateModals() {
         </div>
         <div class="content">
             <i>Tag Hierarchy:</i> ${generateTagHierarchy(i)} <br/>
-            ${obj.desc}
+            ${obj.desc.replaceAll("\n","<br/>")}
         </div>
       </div>
         `

@@ -464,16 +464,23 @@ var events = [
         虽然他没办法直接改变R的思想，但是他修改了其他三人的常识，让他们认为队友是最大的敌人，并构造了虚假的记忆。
         于是，Arg希望击杀R，而Im和Deg则试图杀死对方。
         Deg的攻击过于笨拙，无法打到Im，而Im的能力则让Deg动弹不得。
-        R用自己的剑阻挡住了Arg的狙击，又在千钧一发之际打掉了Im的法杖。`, //required
+        R用自己的剑阻挡住了Arg的狙击，又在千钧一发之际打掉了Im的法杖。
+        炎魔意识到无法同时保全四个人，便决定先狠心杀死所有的队友将能力集中后，等到成功后再复活。
+        但是，O的能力过于强大，他看透了对方的战术。他用时空龙Noyuki的能力倒转时间，阻止了勇者小队的计划，而勇者小队也因此惨败，被带回皇宫和其他人一起成为了O的新玩具。`, //required
         participant: [ //use id
             "R",
             "Deg",
             "Im",
             "Arg",
-            "O"
+            "O",
+            "Noyuki"
         ],
         effect: [
-            "Deg.equipment+=#deg_relic1"
+            "Deg.equipment+=#deg_relic1",
+            "R.location=#palace",
+            "Deg.location=#palace",
+            "Im.location=#palace",
+            "Arg.location=#palace",
         ]
     },
 ] //this list will be sorted in the order of 'end' inc

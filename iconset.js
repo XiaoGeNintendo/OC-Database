@@ -9,7 +9,8 @@ var iconset={
     "location":"search location",
     "equipment":"bullseye",
     "status":"fire",
-    "ability":"rainbow"
+    "ability":"rainbow",
+    "career":"user",
 }
 
 function getIcon(s){

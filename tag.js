@@ -187,19 +187,19 @@ var tags={
     }, 
     "rkcamera":{
         parent:"equipment",
-        name:"Rinko的相机",
+        name:"相机（Rinko）",
         desc:"普普通通的拍立得相机，但是一家人辛辛苦苦存钱所换来的，承载了Rinko的梦想。能够定格住拍照框内的物体。",
         icon:"camera"
     }, 
     "anecklace":{
         parent:"equipment",
-        name:"Amethcoy的项链",
+        name:"项链(Amethcoy)",
         desc:"Amethcoy祖传的项链，具有很强的灵性，能够贮存部分能力。有人说可以和灵魂交互。",
         icon:"camera"
     },
     "osword":{
         parent:"equipment",
-        name:"Ookami的剑",
+        name:"剑(Ookami)",
         desc:"Ookami的剑（可能是日本刀？）。没有什么特别的能力，Ookami也不会战斗意义上的舞剑，只会做作秀。",
         icon:"camera"
     },
@@ -229,7 +229,7 @@ var tags={
     },
     "relic":{
         parent:"equipment",
-        name:"遗物",
+        name:"遗物（Deg）",
         desc:"由Deg的能力产生的具有一定魔法效应的小浮游物件",
         icon:"atom"
     },
@@ -239,6 +239,39 @@ var tags={
         desc:"持有者更难被精神控制",
         icon:"atom"
     },
+    "epis_shooter":{
+        parent:"equipment",
+        name:"微型魔导炮「<i>Delta</i>」",
+        desc:"Epis研发的魔导炮，具有极强的输出和穿透能力。有多个挡位对应着不同的口径和威力。除此以外，她不想让别人知道的是，这把武器上还装载了智能手机应用和「娱乐模式」。在娱乐模式下，可以发出流光溢彩般的光芒，但是炫酷而不中用。",
+        icon:"camera"
+    },
+    "epis_crystal":{
+        parent:"equipment",
+        name:"魔力结晶（Epis）",
+        desc:`Epis体内的魔力结晶，威胁着她的生命的同时也给予了她极大的力量。
+        在与其他凶兽或是有能力的人物（aka在本网站上记载的人物）时会发生【共鸣】，获得4点凶兽点数。
+        如果一段时间没有发生【共鸣】，将会发生【强共鸣】，获得12点凶兽点数，但是会对肉体产生极大的不可逆的影响`,
+        icon:"fire"
+    },
+    "epis_hood":{
+        parent:"equipment",
+        name:"斗篷（Epis）",
+        desc:`Epis的斗篷，黑色的。为了隐藏自己而常常戴着。常常盖住Epis的兔耳和尾巴。虽然医生告诉她，长时间的戴着斗篷会使耳朵一直受到压迫而产生听力的影响，她仍然常常戴着。
+        隐藏能力（需要用凶兽点数激活）：在对方使用指选角色的、非物理的攻击时，如果攻击对象是可数的，且自己在攻击对象中，会将自己排除出攻击对象，将攻击者加入攻击对象；
+        如果攻击对象是不可数的（大群体），且自己在攻击对象中，会将自己排除出攻击对象。
+        在抵挡非凶兽技能时，该技能可无限次发动；在抵抗凶兽能力时，该技能发动一次后需要充能。
+        充能的方法是使用魔导炮对其他生物造成一定数量的阻挡或未被阻挡的伤害。
+        下面是一些例子：
+        被小刀刺伤 - 物理攻击，不发动
+        某人的魔法引起地震 - 非指选角色，不发动
+        被追踪火球设为目标 - 攻击对象可数，将火球目标设定为发动者
+        试图被控制 - 攻击对象可数，将控制对象设定为发动者（aka无效化）
+        试图控制整个城市的人 - 攻击对象不可数，自己不被控制
+        试图命令所有凶兽紫砂 - 攻击对象可数，发动者也要紫砂
+        `,
+        icon:"fire"
+    },
+
 
     "loc":{
         parent:null,
@@ -291,6 +324,12 @@ var tags={
         parent:"loc",
         name:"欧洲",
         desc:`现在的西欧部分`,
+        icon:"location arrow"
+    },
+    "enben":{
+        parent:"loc",
+        name:"炎边",
+        desc:`现在的东北部分的总称。这里气候寒冷，而“炎”是北的意思，而不是火焰的意思。`,
         icon:"location arrow"
     },
     "koria":{

@@ -581,7 +581,7 @@ var chars = [
         sex: "#female",
         status: "#alive",
         location: "#palace",
-        species: ["#sldragon"],
+        species: ["#sldragon","#furdragon"],
         ability: ["管辖生殖与遗传的能力"],
         relationship:[
             ["DLord","同居"]
@@ -802,7 +802,7 @@ var chars = [
         location: "#kamitoku",
         ability: [],
         relationship:[
-            ["O","被寄生"]
+            ["O","（曾）被寄生"]
         ],
         gallery:[],
         desc:`$出生于等级制度诞生之后，是生活在世外桃源般的村落中的兽下级——最低级的兽人。
@@ -819,8 +819,9 @@ var chars = [
         location: "#kamitoku",
         ability: ["大幅度强化他人能力的能力"],
         relationship:[
-            ["Lokikovsky","寄生"],
-            ["R","被讨伐"],
+            ["Lokikovsky","（曾）寄生"],
+            ["Epis","（曾）寄生"],
+            ["R","被讨伐/寄生"],
             ["Arg","被讨伐"],
             ["Deg","被讨伐"],
             ["Im","被讨伐"],
@@ -855,7 +856,7 @@ var chars = [
             ["Im","队友"],
             ["Arg","队友"],
             ["Deg","队友"],
-            ["O","讨伐"]
+            ["O","讨伐/被寄生"]
         ],
         gallery:[],
         desc:`$<img src="image/R.png"/> 
@@ -964,6 +965,7 @@ var chars = [
         equipment:["#epis_hood","#epis_crystal","#epis_shooter"],
         ability: ["激发斗篷隐藏能力的能力","激发体内水晶能力的能力"],
         relationship:[
+            ["O","（曾）被寄生"]
         ],
         gallery:[],
         desc:`$Epis，兔子黑魔法术士。

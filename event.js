@@ -231,7 +231,7 @@ var events = [
     {
         name: "补充事件", //required
         start: 400, //required
-        desc: `该事件作为placeholder，补充了所有已经遗忘的角色进宫的过程`, //required
+        desc: `该事件作为placeholder，补充了所有已经遗忘的角色变化的过程`, //required
         participant: [ //use id
             "Ninetail",
             "Naza",
@@ -245,6 +245,7 @@ var events = [
         ],
         effect: [
             "Ninetail.location=#palace",
+            "Ninetail.ability+=产生封印结界「天之牢」束缚对方。天之牢维护的开销由被封印者提供，而被封印者能力越强开销越大，能一个瞬间内将最强者的法力和精力抽干到普通人的量。aka对强者效果绝佳",
             "Naza.location=#palace",
             "Haobo.location=#palace",
             "Wulpit.location=#palace",
@@ -349,13 +350,15 @@ var events = [
             "Ninetail",
             "Doragon",
             "Ookami",
-            "DLord"
+            "DLord",
+            "Wulpit",
         ],
         effect: [
             "Ninetail.status=#alive",
             "Doragon.status=#alive",
             "Ookami.status=#alive",
             "DLord.status=#alive",
+            "Wulpit.status=#alive"
         ]
     },
     {
@@ -483,6 +486,131 @@ var events = [
             "Arg.location=#palace",
         ]
     },
+
+    {
+        name: "Epis的生日", //required
+        start: 738.66,
+        arc: "epis",
+        desc: `Epis出生后从她能记起之时便在街上流浪生活（详见角色介绍）`, //required
+        participant: [ //use id
+            "Epis",
+        ],
+        effect: [
+        ]
+    },
+    {
+        name: "新的生命", //required
+        start: 742.88,
+        arc: "epis",
+        desc: `Epis被老夫妇发现并救助，从此开始了学习。（详见角色介绍）`, //required
+        participant: [ //use id
+            "Epis",
+        ],
+        effect: [
+        ]
+    },
+    {
+        name: "命运的转折", //required
+        start: 753.95,
+        arc: "epis",
+        desc: `Epis失去了亲人，同时诊断出不治之症。（详见角色介绍）
+        `, //required
+        participant: [ //use id
+            "Epis",
+        ],
+        effect: [
+        ]
+    },
+    {
+        name: "Delta的诞生", //required
+        start: 755.07,
+        arc: "epis",
+        desc: `大二的Epis发明了Delta，同时期决定翘课。（详见角色介绍）
+        `, //required
+        participant: [ //use id
+            "Epis",
+        ],
+        effect: [
+        ]
+    },
+    {
+        name: "雪兔", //required
+        start: 756.11,
+        arc: "epis",
+        desc: `Epis成为凶兽，乘车前往首都。
+        O试图获取她的位置，但是失败了（O的获取能力不是凶兽能力）
+        O让Ninetail获取她的位置，成功了（Ninetail的获取能力是凶兽能力）
+        O认为自己无法对Epis造成伤害，于是O和Ninetail一起前往拦截Epis。
+        Ninetail试图用上级魔法攻击Epis，但是由于Epis的能力影响对象被改变自爆了。
+        于是O倒转时间让Ninetail重新用物理攻击进行打击。物理攻击激活了Epis体内水晶的能力，使得Ninetail被净化。
+        Ninetail使用自己特别的能力「天之牢」封印O，让Epis最后击杀O获得O的能力。
+        但是正如Loki杀死了O的宿主，但是却被O附身。
+        Epis杀死的是Loki，而O反而获得了新的宿主。（伏笔？）
+        无论怎样，在场的各位都认为是胜利。
+        `, //required
+        participant: [ //use id
+            "Ninetail",
+            "O",
+            "Epis",
+            "Lokikovsky",
+            "Noyuki"
+        ],
+        effect: [
+            "Ninetail.location=#unknown",
+            "O.location=#unknown",
+            "Lokikovsky.location=#unknown",
+            "Epis.location=#unknown",
+            "Lokikovsky.status=#dead",
+            "Epis.ability+=可以使用体内水晶的弱共鸣能力",
+            "Epis.ability+=可以通过周围魔力的湮灭和变化来为斗篷充能的能力",
+        ]
+    },
+
+    {
+        name: "雪兔登基", //required
+        start: 756.12,
+        arc: "epis",
+        desc: `在大家的一致同意下，Epis成为了新的执政凶兽。世界和平了。
+        在Ninetail和龙王的帮助下，学习到了可以抵抗外敌的战斗性能力。
+        在Reshi的帮助下，Epis的魔力水晶的强共鸣得到了抑制，Epis的身体状况有所好转。
+        施政：复活了一些人（详见Effects）、改为Friend制、大大限制了时空龙的能力、让天气宫更难被找到。
+        特别的，现在部分指选型魔力的成功率会由双方的实力差进行加成。（eg再强的魔法由渣渣发动都很难影响到Ninetail等）
+
+        R的小队在O被打倒后失去了主要目标，决定环游世界帮助各地的人解决问题，离开了皇宫。
+        寄生在Epis上的O意识到在皇宫里迟早会被Ninetail发现（之前就被发现过一次），也随着Epis的新能力沿着链接寄生到了R的身上……
+        Epis的新幸福生活开始啦~
+        `, //required
+        participant: [ //use id
+            "Ninetail",
+            "O",
+            "Epis",
+            "R",
+            "Im",
+            "Deg",
+            "Arg",
+            "Noyuki",
+            "Fely",
+            "Racon",
+            "Amethcoy",
+            "Reshi"
+        ],
+        effect: [
+            "Ninetail.location=#palace",
+            "O.location=#palace",
+            "Epis.location=#palace",
+            "Epis.ability+=可以抑制体内水晶强共鸣的效果",
+            "Epis.ability+=与「链接」的人建立连接，可以在一定限制下互相调用能力、传递情感等。「链接」定义为曾经共鸣过的生物或是在自己视线范围里的生物。",
+            "Epis.ability+=通过视线（红眼？）传递魔力可以向所见的生物强加预设好的动作的序列（aka操控，但是不完全剥夺对方的自主意识）",
+            "R.location=#unknown",
+            "Arg.location=#unknown",
+            "Im.location=#unknown",
+            "Deg.location=#unknown",
+            "O.location=#unknown",
+            "Fely.status=#alive",
+            "Racon.status=#alive",
+            "Amethcoy.status=#alive"
+        ]
+    },
 ] //this list will be sorted in the order of 'end' inc
 
 var arcs = {
@@ -494,7 +622,8 @@ var arcs = {
     "saluvy": "一夜贪婪——Saluvy的故事",
     "naza": "幼狐物语——Naza和Haobo的故事",
     "o1": "封印战争——O、R、Im、Arg、Deg的故事（上）",
-    "o": "封印战争——O、R、Im、Arg、Deg的故事（下）",
+    "o": "封印战争——O、R、Im、Arg、Deg（以及Epis）的故事（下）",
+    "epis": "雪中白兔——Epis的故事"
 };
 
 //preprocess

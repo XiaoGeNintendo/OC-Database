@@ -611,6 +611,52 @@ var events = [
             "Amethcoy.status=#alive"
         ]
     },
+
+    {
+        name: "O的挣扎", //required
+        start: 757,
+        end: 758.3,
+        arc: "o",
+        desc: `O附身在R身上后准备东山再起。获得了新能力后先控制住了Im、Arg、Deg（O的能力）。
+        接着利用使Noyuki失去行动能力（Im的能力），并控制Noyuki（O的能力）。
+        试图建立反动政权+宗教组织「新·龙教」，将龙王视为「反叛」，通过洗脑加入者让他们感到快乐后自然的信仰（O的能力）。
+        ~1年后，Ninetail注意到了这一组织，前往调查，调查后发现了O的存活，准备歼灭。
+        然而，O使Ninetail失去行动能力（Im的能力），并试图控制Ninetail（O的能力）。
+        在皇宫的Epis观察到Ninetail的局势不佳（DLord的能力），净化了Ninetail、Im、Arg、Deg（Epis的能力），前往战场参战，开始战术反攻。
+        O利用多余的点数，激活了许多战斗型能力（凶兽的能力），但是由于人数压制，占下风后被Ninetail所召唤来的Hikari（Ninetail的能力）偷袭而死。
+        R由于不能进入天堂而亡（世界设定），O被打上了标记后也不能进入天堂而亡（世界设定）
+        `, //required
+        participant: [ //use id
+            "Ninetail",
+            "O",
+            "Epis",
+            "R",
+            "Im",
+            "Deg",
+            "Arg",
+            "Noyuki",
+            "Hikari"
+        ],
+        effect: [
+            "O.ability+=产生可穿透物理实体的触手对远处的物体、生物的大脑进行操作",
+            "O.location=#europe",
+            "R.location=#europe",
+            "Im.location=#europe",
+            "Arg.location=#europe",
+            "Deg.location=#europe",
+            "Ninetail.location=#europe",
+            "Epis.location=#europe",
+            "Hikari.location=#europe",
+            "O.status=#dead",
+            "R.status=#dead",
+            "Im.location=#palace",
+            "Arg.location=#palace",
+            "Deg.location=#palace",
+            "Ninetail.location=#palace",
+            "Epis.location=#palace",
+            "Hikari.location=#palace",
+        ]
+    },
 ] //this list will be sorted in the order of 'end' inc
 
 var arcs = {
@@ -622,7 +668,7 @@ var arcs = {
     "saluvy": "一夜贪婪——Saluvy的故事",
     "naza": "幼狐物语——Naza和Haobo的故事",
     "o1": "封印战争——O、R、Im、Arg、Deg的故事（上）",
-    "o": "封印战争——O、R、Im、Arg、Deg（以及Epis）的故事（下）",
+    "o": "封印战争——O、R、Im、Arg、Deg的故事（下）",
     "epis": "雪中白兔——Epis的故事"
 };
 

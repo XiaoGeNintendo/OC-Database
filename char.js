@@ -16,6 +16,15 @@
         desc:`$`, //required usually put at last
     },
 */
+
+function Image(path){
+    return "image/"+path+".jpg"
+}
+
+function Avatar(path){
+    return "image/"+path+"_.jpg"
+}
+
 var chars = [
     {
         name: "Aguta", //required
@@ -35,8 +44,8 @@ var chars = [
         desc:"$游牧民族的首领，擅长诗赋，爱读历史。认为Ninetail执政是妖狐惑君，为此希望匡正皇宫，让龙王的恩惠普及更多的人。然而在夺权的过程中失败，但是未死回乡独善其身。", //required usually put at last
     },{
         name: "Amethcoy", //required
-        image: "", //required
-        avatar: "", //required
+        image: Image("amethcoy"), //required
+        avatar: Avatar("amethcoy"), //required
         otherNames: [], //required
         sex:"#female",
         species: "#fox",
@@ -901,8 +910,8 @@ var chars = [
     },
     {
         name: "Arg", //required
-        image: "", //required
-        avatar: "", //required
+        image: Image("arg"), //required
+        avatar: Avatar("arg"), //required
         otherNames: [], //required
         sex: "#female",
         species: "#darkdragon",

@@ -42,7 +42,12 @@ var tags={
         desc:"使用暗属性的龙，比较强大和稀有。",
         icon:"dragon"
     },
-    
+    "stardragon":{
+        parent:"dragon",
+        name:"星空龙",
+        desc:"操纵星空的龙，十分强大和稀有",
+        icon:"dragon"
+    },
     "sldragon":{
         parent:"lightdragon",
         name:"★白龙",
@@ -55,6 +60,7 @@ var tags={
         desc:"掌握时空的龙，可以倒转、停止时间，压缩、改变空间。拥有极大的魔力潜力。由于过于强大，全世界理论上只能拥有一只（现在实际上有两只），需要受到天气宫和龙王的直接管理和控制，且能力的使用会受到审查和限制。时空龙的工作年限是一万年，在其中时空龙的繁殖也是基本不允许的。",
         icon:"dragon"
     },
+
     "scaledragon":{
         parent:"dragon",
         name:"鳞龙",
@@ -299,7 +305,7 @@ var tags={
         由于龙铁公司的总部设立在此，城内铁路十分发达。`,
         icon:"location arrow"
     }, 
-    "sesehushi":{
+    "esehushi":{
         parent:"ryuto",
         name:"月户城",
         desc:`读作E'se'hu'shi。大川中的江心洲，不位于任何区域（南北西），龙铁总部的所在地。龙族较多，多为上班族。城内高楼林立，十分繁华。`,
@@ -329,7 +335,24 @@ var tags={
         desc:`米莱的城市，龙穴以西，周围被常年积雪的上神德山环抱，但是城市本身周围没有积雪。被认为是神灵所栖息的地方。`,
         icon:"location arrow"
     },
-    
+    "america":{
+        parent:"loc",
+        name:"亚国",
+        desc:`位于现北美洲的国家，全球第二大经济体。`,
+        icon:"map marker"
+    },
+    "newcapital":{
+        parent:"america",
+        name:"新都",
+        desc:`亚国新建立的城市，对标龙都。`,
+        icon:"location arrow"
+    },
+    "ncdungeon":{
+        parent:"newcapital",
+        name:"新都地牢",
+        desc:`新都皇宫下的地牢，用来关押前皇宫不重要的人物。也担任了秘密研究和军事大本营的任务。`,
+        icon:"location arrow"
+    },
     "europe":{
         parent:"loc",
         name:"欧洲",
@@ -348,10 +371,16 @@ var tags={
         desc:`位置在现在的朝鲜半岛`,
         icon:"location arrow"
     },
+    "heaven":{
+        parent:"loc",
+        name:"天堂",
+        desc:`元人类死后所去之处。在这里寿命不会流逝，生活的人有一定概率再回到人间，但是如果被世间之人遗忘就会真正的死去。现在，由于政策影响，人类死亡后无法上天堂，只有兽和龙有这个权限。另外，是「九州时代」的一个岛。`,
+        icon:"location arrow"
+    },
     "hell":{
         parent:"loc",
         name:"地狱",
-        desc:`兽族死后所去之处。`,
+        desc:`龙王等第一代凶兽的诞生地，以前兽族和龙族死后所去之处，现在是天堂的一个区。`,
         icon:"location arrow"
     },
     "tenkigo":{
@@ -359,6 +388,54 @@ var tags={
         name:"天气宫",
         desc:`读作ten'ki'go。掌管魔法的运行、时间的流逝、魔法契约的执行、天气的运行`,
         icon:"map marker"
+    }, 
+    "jz":{
+        parent:"loc",
+        name:"九州",
+        desc:`Taku创立的世界地理格局，有九个国家九个岛组成世界。`,
+        icon:"torii gate"
+    }, 
+    "yszg":{
+        parent:"jz",
+        name:"妖兽之国",
+        desc:`九州之一，除了首都以外最为强大的国家，由Ninetail和Hikari管理。居民多为兽族，提升妖力是社会主流风气。`,
+        icon:"torii gate"
+    }, 
+    "xwzg":{
+        parent:"jz",
+        name:"习武之国",
+        desc:`九州之一，由Ookami管理。多高山，城市分散，居民物理实力强大。`,
+        icon:"torii gate"
+    }, 
+    "atlantis":{
+        parent:"jz",
+        name:"亚特兰蒂斯",
+        desc:`九州之一，由Doragon管理。城市建设在海底，居民多为水生族。`,
+        icon:"torii gate"
+    }, 
+    "sjzg":{
+        parent:"jz",
+        name:"时间之国",
+        desc:`九州之一，由Noyuki管理。居民以守时为荣，城市建设精美。`,
+        icon:"torii gate"
+    }, 
+    "bfzg":{
+        parent:"jz",
+        name:"冰封之国",
+        desc:`九州之一，由Epis管理。居民多为冰属性生物，城市建设在冰川上。`,
+        icon:"torii gate"
+    }, 
+    "mszg":{
+        parent:"jz",
+        name:"美食之国",
+        desc:`九州之一，由Rinko和Rinri管理，是较大的岛屿，幅员辽阔，美食种类多样。`,
+        icon:"torii gate"
+    }, 
+    "hazg":{
+        parent:"jz",
+        name:"黑暗之国",
+        desc:`九州之一，由Wulpit管理。永夜，居民多为夜行种。`,
+        icon:"torii gate"
     }, 
 
     "unknown":{

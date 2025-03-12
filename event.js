@@ -8,6 +8,17 @@ function displayTime(t) {
     return "Year " + year + " Day " + (day + 1);
 }
 
+/**
+ * Turn year and day into a format readable by the system
+ * 
+ * Not very precise though :/
+ * @param {*} y - the year 
+ * @param {*} d - the day
+ */
+function YearDate(y, d){
+    return y + (d-1)/365.0;
+}
+
 /*
 {
     name: "", //required
@@ -657,6 +668,218 @@ var events = [
             "Hikari.location=#palace",
         ]
     },
+
+    {
+        name: "全民运动", //required
+        start: 1250,
+        arc: "genesis",
+        desc: `Epis在Ninetail的建议下开展了「凶兽自由化」的运动。本来的规则是只有极少数人可以当上凶兽，现在的理念是所有人都有点数，但是数量不同（虽然还是不能后天获取就是了）
+        对于大多数人来说，这些点数都点在了自保上，但是对于一部分人来说，他们会选择将点数投入到某个能力上，这样就会有了「凶兽」的能力。
+        只是很可惜，这个时代的法律和探查凶兽的方法也变得更加严格了。很多时候，这些能力也只能在特定的场合使用。在更多的地方，有「结界」的存在，根本无法使用能力。
+        `, //required
+        participant: [ //use id
+            "Ninetail",
+            "Epis"
+        ],
+        effect: [
+        ]
+    },
+    
+    {
+        name: "「新亚基金会」", 
+        start: 1256,
+        arc: "genesis",
+        desc: `出现了神秘的类似宗教的组织，「新亚基金会」。他们的门槛极高，只有少数天赋异禀的经过审核的凶兽才能加入。许多成员进入后都自称享受了富贵的生活，让许多人都很羡慕。
+        他们也会到处寻找能力点数多但是没有使用的人，让他们加入。这被世人认为是一种新的「暴发户」。不过他们的目的还是未知的。
+        `, 
+        participant: [
+        ],
+        effect: [
+        ]
+    },
+    {
+        name: "「新亚基金会」++", 
+        start: 1266,
+        arc: "genesis",
+        desc: `「新亚基金会」的分部数量大大增加了。Ninetail试图弄清楚他们的目的，但是却没有找到他们参与非法行为的证据。
+        `, 
+        participant: [
+            "Ninetail"
+        ],
+        effect: [
+        ]
+    },
+    {
+        name: "「生物熔炉」计划", 
+        start: 1276,
+        arc: "genesis",
+        desc: `亚国宣布军队加入两位新兵，他们被称作「生物兵器」。没人知道他们怎么来的，这让世界上的人们都感到了恐惧。
+        （详情请见Eve的角色界面）
+        `, 
+        participant: [
+            "Eve",
+            "Adam"
+        ],
+        effect: [
+        ]
+    },
+    {
+        name: "「新亚基金会」的终结", 
+        start: 1276.1,
+        arc: "genesis",
+        desc: `就在Adam和Eve问世后不久，「新亚基金会」的所有成员突然消失了。好巧不巧，亚国的一份“机密”文件泄露，里面详细的介绍了「新亚基金会」的目标：
+        基金会的目的是收集强大之人的灵魂，将他们秘密押送到亚国熔炼成「生物兵器」。由于选拔上的人都是强大的凶兽，他们可以利用部分人的能力，向外界传达“我们是合法机构哦”的假象。
+        然而这份文件的泄露已经太晚了，亚国已经开始利用新的兵器开始了对外战争。
+        `, 
+        participant: [
+        ],
+        effect: [
+        ]
+    },
+    {
+        name: "从东到西", 
+        start: 1277,
+        arc: "genesis",
+        desc: `Adam和Eve轻松打下了龙都，部分皇宫内人员奋勇抵抗而失败，也有部分人员逃跑，二人对皇宫进行了大清洗，俘虏了龙王。亚国打算在本国建立「新都」，建立新皇宫，将龙王等重要人物转移到本国。
+        亚国将没有价值的Doragon和Ookami等留在龙都来善后，将Ninetail、Epis（现执政凶兽）等重要但是不必要的生物关入地牢。他们中的许多受到了非人的待遇，部分比较弱小的凶兽更是被蹂躏至死。
+        由于龙王的转移，不少龙族也决定跟随龙王一起转移。一下子世界的风向从东方转向了西方，许多国家被亚国的军事实力施压而不敢有所意见。
+        虽然执政凶兽名义上没有改变，但是Epis显然已经无法执政。
+        由于Adam和Eve的强大能力，在那之后很长时间没有凶兽能够成功讨伐亚国。
+        `, 
+        participant: [
+            "Adam",
+            "Eve",
+            "Ninetail",
+            "DLord",
+            "Epis",
+            "Reshi",
+            "Noyuki",
+            "Racon",
+            "Fely",
+            "Wulpit",
+            "Deg",
+            "Im",
+            "Arg",
+            "Amethcoy"
+        ],
+        effect: [
+            "Adam.location=#ncdungeon",
+            "Eve.location=#ncdungeon",
+            "Ninetail.location=#ncdungeon",
+            "DLord.location=#newcapital",
+            "Epis.location=#ncdungeon",
+            "Reshi.location=#newcapital",
+            "Noyuki.location=#newcapital",
+            "Racon.location=#ncdungeon",
+            "Racon.status=#dead",
+            "Fely.location=#ncdungeon",
+            "Fely.status=#dead",
+            "Wulpit.location=#ncdungeon",
+            "Deg.status=#dead",
+            "Im.status=#dead",
+            "Arg.status=#dead",
+            "Amethcoy.location=#unknown"
+        ]
+    },
+    {
+        name: "35岁，是程序员", 
+        start: 1311,
+        end: 1313,
+        arc: "genesis",
+        desc: `Taku是一名普通的程序员，来到龙都在大厂打工。然而，35岁的他由于“技术不过关”被裁员。
+        Taku开始利用自己的凶手点数研发可以操纵他人和机械的一体化机器，并取得了一定成就。
+        他从小就希望能构成一番“大事”，反正自己除了金钱已经没有东西可以失去，死宅的他又没有啥其他愿望，在去异世界之前打算玩一波大的。
+        他利用Ookami和Doragon为跳板，控制他们以“前往新都探望龙王”为借口，将自己带到新都（Taku的能力）。
+        在那里，Taku解救了被控制成狗的Ninetail（Taku的能力二），Ninetail向他解释了自己力量被剥夺的事和她所知道的一切，请求他恢复王室（Ninetail你也有今天！）。
+        然而，Taku虽然同意了，但是打算自己先玩一玩~
+        `, 
+        participant: [
+            "Doragon",
+            "Ookami",
+            "Taku"
+        ],
+        effect: [
+            "Doragon.location=#newcapital",
+            "Ookami.location=#newcapital",
+            "Taku.location=#newcapital",
+        ]
+    },
+    {
+        name: "世界游戏", 
+        start: YearDate(1313,12),
+        end: 1315,
+        arc: "genesis",
+        desc: `Taku在亚国创立了公司，利用自己的能力大量生产包装成“Wifi”的精神控制装置。
+        利用自己的能力（也因为他是最早进入新都的一批商人，钻了法律的漏洞(lll￢ω￢)），Taku很快在这个市场上达到了垄断。
+        很快，全世界都在使用Taku牌Wifi，而只要在该产品辐射范围内的，都能收到Taku的精神控制。
+        很快，将没有人能够抵御……除了一个人：那便是龙铁的领导人光穹。
+        Taku希望借龙铁的影响力更大的推广自己的产品，却被同样实力强大的光穹发现了，于是二人展开了搏斗，以光穹的失败告终。
+        `, 
+        participant: [
+            "Taku",
+            "Ryoyu Kokyo"
+        ],
+        effect: [
+        ]
+    },
+    {
+        name: "九州伊始", 
+        start: YearDate(1315,38),
+        arc: "genesis",
+        desc: `玩够了的Taku杀死了Adam和Eve，成为了执政凶兽，按照自己的意愿重塑世界。
+        他的想法是创造一个简单的世界体系，不需要复杂的凶兽机制。
+        凶兽机制恢复到了许多年前的模样：少数人担当凶兽、杀戮获得点数然后成长、没有上限……
+        他创造的新世界有九个岛构成，称为「九州」，分别为：
+        - 首都： 龙王和执政凶兽（自己）所在的地方
+        - 妖兽之国：Ninetail和Hikari为国王的国度
+        - 习武之国：Ookami的国度
+        - 亚特兰蒂斯：Doragon的国度
+        - 时间之国：Noyuki的国度
+        - 冰封之国：Epis的国度
+        - 天堂：地位等同于原来的天堂，Reshi的国度
+        - 美食之国：Rinko和Rinri的国度
+        - 黑暗之国：Wulpit的国度
+        
+        其他一些有名人物的位置也被重新安排了，请见Effects。
+        听起来非常儿童过家家？听起来像是硬凑的？那就对了！
+        
+        兼容消息：部分角色例如Naza和Amethcoy在创世前地点不明，虽然Taku不认识他们，但是在创世后仍然存在，只是地点不明。
+        `, 
+        participant: [
+            "Taku",
+            "Adam",
+            "Eve",
+            "DLord",
+            "Ninetail",
+            "Hikari",
+            "Ookami",
+            "Doragon",
+            "Noyuki",
+            "Epis",
+            "Reshi",
+            "Rinko",
+            "Rinri",
+            "Wulpit",
+            "Ryoyu Kokyo"
+        ],
+        effect: [
+            "Adam.status=#dead",
+            "Eve.status=#dead",
+            "Taku.location=#palace",
+            "DLord.location=#palace",
+            "Ninetail.location=#yszg",
+            "Hikari.location=#yszg",
+            "Ookami.location=#xwzg",
+            "Doragon.location=#atlantis",
+            "Noyuki.location=#sjzg",
+            "Epis.location=#bfzg",
+            "Reshi.location=#heaven",
+            "Rinko.location=#mszg",
+            "Rinri.location=#mszg",
+            "Wulpit.location=#hazg",
+            "Ryoyu Kokyo.location=#sjzg"
+        ]
+    },
 ] //this list will be sorted in the order of 'end' inc
 
 var arcs = {
@@ -669,7 +892,8 @@ var arcs = {
     "naza": "幼狐物语——Naza和Haobo的故事",
     "o1": "封印战争——O、R、Im、Arg、Deg的故事（上）",
     "o": "封印战争——O、R、Im、Arg、Deg的故事（下）",
-    "epis": "雪中白兔——Epis的故事"
+    "epis": "雪中白兔——Epis的故事",
+    "genesis": "星之所处——Adam、Eve和Taku的故事"
 };
 
 //preprocess

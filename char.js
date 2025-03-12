@@ -27,6 +27,65 @@ function Avatar(path){
 
 var chars = [
     {
+        name: "Taku", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex:"#male",
+        species: "#human",
+        status: "#alive",
+        location: "#ryuto",
+        ability: ["可以进入不被任何人发现的「STEALTH MODE」","可以hack任何生物、机械（需要时间）"],
+        relationship:[],
+        gallery:[],
+        desc:`$35岁被裁员的死宅程序员`, //required usually put at last
+    },
+
+    {
+        name: "Eve", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex:"#female",
+        species: "#stardragon",
+        status: "#alive",
+        location: "#america",
+        ability: ["无效化一切魔法攻击的能力","拥有最为强大的魔力","拥有最为强大的智力"],
+        relationship:[
+            ["Adam","姐姐"]
+        ],
+        gallery:[],
+        desc:`$亚国的「跨时代生物兵器」之一，另外一只是Adam。
+        他们的诞生，建立在名为「生物熔炉」的机密工程之上。
+        所谓「生物熔炉」工程，就是一种通过牺牲百万倍的凶兽来创造一只最为强大的凶兽的生物魔法科技。
+        而之前提出的「凶兽自由化」————人人都可以选择凶兽能力，只是点数多少不同——这一个政策刚好为这一项目提供了条件。 <br/>
+        龙族为人类带来了魔法，但是并不是每个人都能平等的收到龙王的恩惠。
+        由于地理的因素，龙族的恩惠主要集中在Zogo国，而原本的亚国虽然是世界上最为富裕的国家，由于没有赶上魔法的发展，导致了国家的衰落。 <br/>
+        为此，亚国作为一直以来擅长以武力取胜的国家，其总理秘密推出了「生物熔炉」计划，希望能够通过这个计划来被迫让龙王迁都，让亚国重新崛起。
+        为此，诞生的就是Adam和Eve，两只拥有最为强大的力量和智力的凶兽。 <br/>
+        Adam和Eve虽然是龙，但是他们不能与龙王沟通。这是「生物熔炉」计划的一部分，就是在他们没有出生的时候，也就是最脆弱的时候控制他们。
+        接着，通过后天的洗脑教育，他们两深信不疑，认为亚国是他们的家园，自己要为亚国而战。 <br/>
+        龙族的常识是龙王赋予的，人类的常识是后天学习的，没有得到正常的教育也没有龙王的恩惠，他们的「常识」完全异于常人。
+        尽管常常受到「主人」的各种虐待和侵犯，但是他们并没有反抗的意识，反而认为这是他们的义务。 尽管他们的力量超过军队其他人的数倍，但是他们并不会反叛。 <br/>
+        `, //required usually put at last
+    },
+    {
+        name: "Adam", //required
+        image: "", //required
+        avatar: "", //required
+        otherNames: [], //required
+        sex:"#male",
+        species: "#stardragon",
+        status: "#alive",
+        location: "#america",
+        ability: ["无效化一切物理攻击的能力","拥有最为强大的力量"],
+        relationship:[
+            ["Eve","弟弟"]
+        ],
+        gallery:[],
+        desc:"$详见Eve", //required usually put at last
+    },
+    {
         name: "Aguta", //required
         image: "", //required
         avatar: "", //required
@@ -643,7 +702,9 @@ var chars = [
 
         出生的时候被赋予的名字是前者。然而为了证明自己能够独当一面而重新换成了后者。在龙铁对外事务中从不露面（都是管家露面），以致于许多人认为她只是名存实亡的CEO。
 
-        实际上身高只有1m3-1m4，是萝莉呢（？）`, //required usually put at last
+        实际上身高只有1m3-1m4，是萝莉呢（？）
+        
+        父母都是非常强大的龙族，自身魔力也很强。`, //required usually put at last
     },
     {
         name: "Segic", //required
